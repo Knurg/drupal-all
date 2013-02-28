@@ -1,0 +1,3 @@
+[submodule "modules/wisski_find"]
+	path = modules/wisski_find
+	url = git@github.com:WissKI/wisski_find.git
