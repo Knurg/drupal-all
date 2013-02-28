@@ -1,3 +1,51 @@
 [submodule "modules/wisski_find"]
 	path = modules/wisski_find
 	url = git@github.com:WissKI/wisski_find.git
+[submodule "modules/wisski"]
+	path = modules/wisski
+	url = git@github.com:WissKI/wisski.git
+[submodule "modules/wisski_pathbuilder"]
+	path = modules/wisski_pathbuilder
+	url = git@github.com:WissKI/wisski_pathbuilder.git
+[submodule "modules/wisski_store"]
+	path = modules/wisski_store
+	url = git@github.com:WissKI/wisski_store.git
+[submodule "modules/wisski_editor"]
+	path = modules/wisski_editor
+	url = git@github.com:WissKI/wisski_editor.git
+[submodule "modules/wisski_vocab_ctrl"]
+	path = modules/wisski_vocab_ctrl
+	url = git@github.com:WissKI/wisski_vocab_ctrl.git
+[submodule "modules/wisski_navigator"]
+	path = modules/wisski_navigator
+	url = git@github.com:WissKI/wisski_navigator.git
+[submodule "modules/wisski_accesspoint"]
+	path = modules/wisski_accesspoint
+	url = git@github.com:WissKI/wisski_accesspoint.git
+[submodule "modules/wisski_relfinder"]
+	path = modules/wisski_relfinder
+	url = git@github.com:WissKI/wisski_relfinder.git
+[submodule "modules/wisski_search"]
+	path = modules/wisski_search
+	url = git@github.com:WissKI/wisski_search.git
+[submodule "modules/wisski_textproc"]
+	path = modules/wisski_textproc
+	url = git@github.com:WissKI/wisski_textproc.git
+[submodule "modules/wisski_reasoner"]
+	path = modules/wisski_reasoner
+	url = git@github.com:WissKI/wisski_reasoner.git
+[submodule "modules/wisski_endpoint"]
+	path = modules/wisski_endpoint
+	url = git@github.com:WissKI/wisski_endpoint.git
+[submodule "modules/wisski_pages"]
+	path = modules/wisski_pages
+	url = git@github.com:WissKI/wisski_pages.git
+[submodule "modules/wisski_jit"]
+	path = modules/wisski_jit
+	url = git@github.com:WissKI/wisski_jit.git
+[submodule "modules/wisski_discussion"]
+	path = modules/wisski_discussion
+	url = git@github.com:WissKI/wisski_discussion.git
+[submodule "themes/blendedmalts"]
+	path = themes/blendedmalts
+	url = git@github.com:WissKI/blendedmalts.git
