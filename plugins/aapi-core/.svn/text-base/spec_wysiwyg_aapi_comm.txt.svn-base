@@ -1,0 +1,249 @@
+=============================
+
+    Communication Protocol
+
+       Editor <--> AAPI
+      
+============================= 
+
+
+TOC
+
+o Communication
+
+o Event types and structure
+
+o Annotation classes
+
+
+_____________________________
+
+Communication
+_____________________________
+
+1.  The text is segmented into blocks according to the <p> elements.
+  Each block is given a block ID (string). The block ID is persistent for the
+  whole session. The block IDs are ordered lexically according to the block
+  sequence.
+  
+2.  New text (or all text at startup) in a block is propagated with a text
+  event.
+  
+3.  At startup, annotations in the text are passed to the AAPI via anno events.
+
+4.  Anno events from the AAPI are inserted in the text.
+
+5.  Upon selection of text by the user, the editor sends a selection event to
+  request annotation proposals.
+  
+6.  Upon selection of an annotation by the user, the editor sends a list event
+  to request alternative annotation proposals.
+  
+7.  If the user selects an annotation of the proposal list (5. + 6.), the editor
+  notifies the AAPI with an anno event. In case an old annotation is replaced
+  (6.), no extra annotation deletion event is needed.
+
+8.  If the editor recieves an error event, the further handling is completely up
+  to the editor.
+
+(X.  If the editor recieves a second init event, this means that the AAPI has
+  reset the session. Thus, 2. + 3. should be repeated. This might occur after
+  longer editing pauses or if the AAPI encountered an internal problem.)
+  
+
+
+
+
+
+_____________________________
+
+Event types and structure
+_____________________________
+
+1. general, editor <--> AAPI
+
+a) event sequence: for less traffic
+
+{
+ ("sid":"<session id>",)
+  "type":"seq",
+  "seq":[<event1>,<event2>,...]  // chain of events; JSON objects
+}
+
+NOTE: The session ID is set by the AAPI. Unless for the first event sent, the
+editor must always include the session ID. In case of nested events (eg. an
+event sequence) only the top event must carry the session ID, the chained events
+may omit it. The AAPI will send the session ID only once, with the first event
+returned (normally the init event or an event seq.).
+This implies that the editor must wait for the reply to the first event sent,
+before it can send a second event. Thus, the editor's first event should be an
+event sequence containing all events accumulating at startup phase.
+
+
+2.  editor --> AAPI
+
+
+a) text event: append text to a (new) block
+
+{
+ ("sid":"<session id>",)
+  "type":"text",
+  "bid":"<block id>",            // specify the block / <p>
+  "rev":<revision>,              // the revision: = previous means append text
+                                                 > previous means start anew
+  "text":"<text>"                // the text to be appended
+}
+
+b) anno event: set an annotation
+
+{
+ ("sid":"<session id>",)
+  "type":"anno",
+  "bid":"<block id>",            // id of the block, the annotation is in
+  "range":[<start>,<end>],       // bounds of the anno. as char positions
+  "aid":"<annotation id>",       // id of the annotation
+  "cls":"<list of classes>"      // the attributed classes; ws sep.
+}
+
+c) list event: ask for alternative annotations
+
+{
+ ("sid":"<session id>",)
+  "type":"list",
+ ("bid":"<block id>",)           // id of the block the selection is in
+  "aid":"<annotation id>",       // the id of the annotation for which
+                                    alternatives are asked for
+ ("termtypes":"<list of types>") // ws. sep.; omitted or "" means all types
+ ("selrng":[<start>,<end>])      // if present, only return this range of result
+                                 // list (faster?); end is included!
+ ("ordered":boolean)			 // if there, each term type will be handled
+ 									separately according to selrng 
+}
+  
+d) selection event: annotation proposals for user selection
+
+{
+ ("sid":"<session id>",)
+  "type":"list",
+  "bid":"<block id>",            // id of the block the selection is in
+  "range":[<start>,<end>],       // bounds of the selection as char positions
+ ("termtypes":"<list of types>",) // ws. sep.; omitted or "" means all types
+ ("selrng":[<start>,<end>])       // if present, only return this range of result
+                                 // list (faster?); end is included!
+ ("ordered":boolean)			 // if there, each term type will be handled
+ 									separately according to selrng 
+}
+
+e) delete event: block deletion
+
+{
+ ("sid":"<session id>",)
+  "type":"delete",
+  "bid":"<block id>",            // id of the block that is deleted
+}
+
+f) dummy event: just ask for AAPI events
+
+{
+ ("sid":"<session id>",)
+  "type":"nul"
+} 
+
+
+3.  editor <-- AAPI
+
+a) init event: propagate that the AAPI session has been correctly set up
+
+{
+ ("sid":"<session id>",)
+  "type":"init"
+}
+
+b) anno event: an automatically found annotation for display
+
+{
+  "type":"anno",
+  "bid":"<block id>",            // id of the block, the annotation is in
+  "range":[<start>,<end>],       // bounds of the anno. as char positions
+  "aid":"<annotation id>",       // id of the annotation
+  "cls":"<list of classes>"      // the attributed classes; ws sep.
+  
+}
+
+c) selection event: list of annotations for a user selection
+
+{
+  "type":"list",
+  "bid":"<block id>",            // id of the block, the selection is in
+  "range":[<start>,<end>],       // bounds of the selection as char positions
+ ("termtypes":"<list of types>",) // same as in request event
+  "seq":[<list of annos>]        // each annotation is encoded as annotation
+                                    event (see b). NOTE: not all annos must have
+                                    the same range as the selection.
+  "hasmore":true|false
+}
+
+d) list event: list of alternative annotations for an annotation
+
+{
+  "type":"list",
+  "aid":"<anno id>",
+ ("bid":"<block id>",)           // id of the block the annotation is in
+                                    (only returned if sent by the editor) 
+ ("termtypes":"<list of types>",) // same as in request event
+  "seq":[<list of annos>]        // each annotation is encoded as annotation
+                                    event (see b). NOTE: not all annos must have
+                                    the same range as the selection.
+  "hasmore":true|false
+}
+   
+e) error event: AAPI reports an error (debugging)
+
+{
+  "type":"error",
+  "text":"<error msg>"           // the error message, plain text
+}
+
+
+_____________________________
+
+Annotation classes
+_____________________________
+
+(Entries in the classes list, defined in the "cls" feature of anno events.)
+
+Each WissKI dependent class is prefixes with "wisski_".
+
+The editor shall copy all classes with the prefix when sending an anno event.
+Also, all classes shall be copied when recieving an anno event.
+ 
+Interesting classes for the editor are (without the prefix):
+
+- "proposed"
+  the annotation was made automatically and is not approved by the user yet; in
+  complementary distribution with "proposed" 
+
+- "user"
+  the annotation is approved by the user; in complementary distribution with
+  "proposed"
+  
+- "new"
+  the annotation is a new item in a vocabulary / for a term type; in
+  complementary distribution with "exists"
+  
+- "exists"
+  the annotation refers to an existing item in a vocabulary; in complementary
+  distribution with "new"
+
+- "display(<text>)"
+  a plain text for display in (drop-down) list, etc.
+ 
+- "tt_<type>"
+  the term / annotation type; eg. PLACE, PERSON, ...
+
+- "hasmore"
+  only with the last annotation in a recieved list / selection event and when
+  using the "selrng" feature. Indicates that there are more annotations to
+  query. If this is present, a "more button" may be correctly displayed without
+  needing to query the next portion.
+ 

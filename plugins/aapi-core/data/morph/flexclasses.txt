@@ -1,0 +1,14 @@
+N-FLEXKLASSEN
+(fem1 fem2 fsing1 fplur1 fplur2 fplur3 fem3 fem4 fem5 stn n1 n2 
+ nsing1 nplur1 n3 n4 nsing3 nplur3 m6 m7 plurtant
+ nsing2 n5 n6 n7 nplur2 stm swm1 swm2 m1 m2 m3 m4 m5 msing1 msing2 msing3
+ mplur1 mplur3 mplur2 mplur4 plurtant1 plurtant2 adjnom1 adjnom2)
+ADJ-FLEXKLASSEN
+(adj1 adj2 adjpos adjsteig1 adjsteig2 adjsup adjsyn adjflek)
+V-FLEXKLASSEN
+(swv1 swv2 swv3 swv4 swv4_1sg swv5 swz1 swz2 swz3 swz4 swz4_1sg swz5
+ stv1a stv1b stv1c stv2a stv2b stv7a stv7b stv7c stv8)
+ALLOV
+(stv3aa stv3ab stv3b stv3c stv3d stv4a stv4aa stv4b stv4bb stv4c
+stv4cc stv5a stv5aa stv5b stv5bb stv5c stv5cc stv6 stv9 stv7a stv7b
+stv7c stv7d stvkonj)

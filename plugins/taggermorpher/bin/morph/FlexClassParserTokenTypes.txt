@@ -1,0 +1,6 @@
+// $ANTLR : flexclass_parser.g -> FlexClassParserTokenTypes.txt$
+FlexClassParser    // output token vocab name
+SYM_SYMBOL=4
+LPAREN=5
+RPAREN=6
+WS=7

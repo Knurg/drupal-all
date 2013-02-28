@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<settings>
+  <!-- experimental -->
+  <keywords>
+    <pattern type="negative" position="0">.*\d.*|[@\(\)\*\+\"\$]</pattern>
+    <pattern type="negative" position="0">Lorenz</pattern>
+    <pattern type="negative" position="0">Sebald</pattern>
+    <pattern type="negative" position="-1">.+buchs?|.+büchern?</pattern>
+	<pattern type="negative" position="-2">.+buchs?|.+büchern?</pattern>
+    <pattern type="positive" position="-1">namens</pattern>
+  </keywords>
+  <!-- end experimental -->
+  <attrMappings>
+    <mapping types="GIVEN_NAME" source="name" target="givennames"/>
+    <mapping types="SURNAME" source="name" target="surnames"/>
+    <mapping types="NAME_LINK" source="name" target="nameLink"/>
+    <mapping types="GEN_NAME" source="name" target="genName"/>
+  </attrMappings>
+  <namePatterns>
+<!-- each pattern can consist of one or more <annotation>'s + <comma>.
+- the "type" attribute of the annotation may be SURNAME, GIVEN_NAME, GEN_NAME or NAME_LINK for the four types of name parts.
+- the "occurances" attribute of the annotation may be "once" or "multiple" stating how often it may occur. Multiple means at least once.
+
+	order of the patterns is significant!
+-->
+    <pattern>
+      <annotation type="SURNAME" occurances="once"/>
+      <annotation type="GEN_NAME" occurances="once"/>
+    </pattern>
+     <pattern>
+      <annotation type="GIVEN_NAME" occurances="multiple"/>
+      <annotation type="SURNAME" occurances="once"/>
+    </pattern>
+    <pattern>
+      <annotation type="GIVEN_NAME" occurances="multiple"/>
+      <annotation type="GEN_NAME" occurances="once"/>
+      <annotation type="NAME_LINK" occurances="once"/>
+      <annotation type="SURNAME" occurances="once"/>
+    </pattern>
+     <pattern>
+      <annotation type="GIVEN_NAME" occurances="multiple"/>
+      <annotation type="GEN_NAME" occurances="once"/>
+      <annotation type="SURNAME" occurances="once"/>
+    </pattern>
+    <pattern>
+      <annotation type="GIVEN_NAME" occurances="multiple"/>
+      <annotation type="NAME_LINK" occurances="once"/>
+      <annotation type="SURNAME" occurances="once"/>
+    </pattern>
+    <pattern>
+      <annotation type="GIVEN_NAME" occurances="multiple"/>
+      <annotation type="GEN_NAME" occurances="once"/>
+    </pattern>
+  <pattern>
+      <annotation type="GIVEN_NAME" occurances="multiple"/>
+    </pattern>
+    <pattern>
+      <annotation type="SURNAME" occurances="once"/>
+      <comma/>
+      <annotation type="GIVEN_NAME" occurances="multiple"/>
+      <annotation type="GEN_NAME" occurances="once"/>
+    </pattern>
+    <pattern>
+      <annotation type="SURNAME" occurances="once"/>
+      <comma/>
+      <annotation type="GIVEN_NAME" occurances="multiple"/>
+      <annotation type="NAME_LINK" occurances="once"/>
+    </pattern>
+    <pattern>
+      <annotation type="SURNAME" occurances="once"/>
+      <comma/>
+      <annotation type="GIVEN_NAME" occurances="multiple"/>
+      <annotation type="GEN_NAME" occurances="once"/>
+      <annotation type="NAME_LINK" occurances="once"/>
+    </pattern>
+     <pattern>
+      <annotation type="SURNAME" occurances="once"/>
+      <comma/>
+      <annotation type="GIVEN_NAME" occurances="multiple"/>
+    </pattern>
+	<pattern>
+      <annotation type="SURNAME" occurances="once"/>
+    </pattern>
+</namePatterns>
+</settings>

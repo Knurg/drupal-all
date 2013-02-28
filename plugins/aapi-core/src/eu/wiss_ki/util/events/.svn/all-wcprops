@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/repos/Projects/!svn/ver/4827/WissKI/software/aapi/aapi-core/src/eu/wiss_ki/util/events
+END
+GermaNetEventCompiler.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/repos/Projects/!svn/ver/4815/WissKI/software/aapi/aapi-core/src/eu/wiss_ki/util/events/GermaNetEventCompiler.java
+END
+JAWSWordNetEventCompiler.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/repos/Projects/!svn/ver/4827/WissKI/software/aapi/aapi-core/src/eu/wiss_ki/util/events/JAWSWordNetEventCompiler.java
+END
+StemmingJAWSWordNetEventCompiler.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/repos/Projects/!svn/ver/4827/WissKI/software/aapi/aapi-core/src/eu/wiss_ki/util/events/StemmingJAWSWordNetEventCompiler.java
+END
+EventCompiler.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/repos/Projects/!svn/ver/4827/WissKI/software/aapi/aapi-core/src/eu/wiss_ki/util/events/EventCompiler.java
+END

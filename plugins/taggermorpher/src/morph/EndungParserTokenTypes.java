@@ -1,0 +1,61 @@
+// $ANTLR : "endung_parser.g" -> "EndungParser.java"$
+
+package morph;
+	import java.util.Vector;
+	import java.util.Hashtable;
+	import de.fau.cs.jill.feature.*;
+
+public interface EndungParserTokenTypes {
+	int EOF = 1;
+	int NULL_TREE_LOOKAHEAD = 3;
+	int LPAREN = 4;
+	int RPAREN = 5;
+	int SYM_SYMBOL = 6;
+	int SYM_EN = 7;
+	int SYM_N = 8;
+	int SYM_NIL = 9;
+	int SYM_EMPTYSTRING = 10;
+	int SYM_CONCAT = 11;
+	int SYM_CUT = 12;
+	int SYM_EINS = 13;
+	int SYM_ZWEI = 14;
+	int SYM_DREI = 15;
+	int SYM_ADV = 16;
+	int SYM_V = 17;
+	int SYM_UNFLADJ = 18;
+	int SYM_PARTPRAES = 19;
+	int SYM_ADJ = 20;
+	int SYM_KARD = 21;
+	int SYM_ORD = 22;
+	int SYM_L = 23;
+	int SYM_FLEXION = 24;
+	int SYM_EQ = 25;
+	int SYM_DEKTYPI = 26;
+	int SYM_DEKTYPII = 27;
+	int SYM_DEKTYPIII = 28;
+	int SYM_MASK = 29;
+	int SYM_FEM = 30;
+	int SYM_NEUT = 31;
+	int SYM_NOM = 32;
+	int SYM_SING = 33;
+	int SYM_GEN = 34;
+	int SYM_DAT = 35;
+	int SYM_AKK = 36;
+	int SYM_PLUR = 37;
+	int SYM_GRAD = 38;
+	int SYM_POS = 39;
+	int SYM_KOMP = 40;
+	int SYM_SUP = 41;
+	int SYM_PART_ADJ_PRAES = 42;
+	int SYM_PART_ADJ_PERF = 43;
+	int SYM_IMP = 44;
+	int SYM_INF = 45;
+	int SYM_PPP = 46;
+	int SYM_IND_PRAES = 47;
+	int SYM_KONJ_PRAES = 48;
+	int SYM_IND_PRAET = 49;
+	int SYM_KONJ_PRAET = 50;
+	int SYM_SG = 51;
+	int SYM_PL = 52;
+	int WS = 53;
+}

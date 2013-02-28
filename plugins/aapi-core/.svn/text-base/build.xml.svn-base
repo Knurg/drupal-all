@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. -->
+<project basedir="." default="build" name="aapi">
+    <property environment="env"/>
+    <property name="project_loc" value="."/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.6"/>
+    <property name="source" value="1.6"/>
+    <path id="aapi.classpath">
+        <pathelement location="bin"/>
+        <pathelement location="lib/antlr-2.7.5.jar"/>
+        <pathelement location="lib/er-tagger.jar"/>
+        <pathelement location="lib/jan.jar"/>
+        <pathelement location="lib/json.jar"/>
+        <pathelement location="lib/util.jar"/>
+        <pathelement location="lib/mysql-connector-java-5.0.8-bin.jar"/>
+        <pathelement location="lib/shiftone-cache.jar"/>
+        <pathelement location="lib/GermaNetApi2.0.2.jar"/>
+        <pathelement location="lib/commons-logging.jar"/>
+        <pathelement location="lib/jaws-bin.jar"/>
+        <pathelement location="lib/stemmer.jar"/>
+        <pathelement location="lib/util.jar"/>
+    </path>
+    <target name="init">
+        <mkdir dir="bin"/>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="src">
+                <exclude name="**/*.launch"/>
+                <exclude name="**/*.g"/>
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="clean">
+        <delete dir="bin"/>
+    </target>
+    <target depends="clean" name="cleanall"/>
+    <target depends="build-subprojects,build-project" name="build"/>
+    <target name="build-subprojects"/>
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" source="${source}" target="${target}">
+            <src path="src"/>
+            <classpath refid="aapi.classpath"/>
+        </javac>
+    </target>
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
+    <target name="GermaNetEventCompiler">
+        <java classname="eu.wiss_ki.util.events.GermaNetEventCompiler" failonerror="true" fork="yes">
+            <arg line="/home/simnscho/daten/germanet5.3/&#10;${project_loc}/data/event/event-lex_de.xml&#10;${project_loc}/data/event/event-lex-compiled_de.xml"/>
+            <classpath refid="aapi.classpath"/>
+        </java>
+    </target>
+    <target name="JAWSWordNetEventCompiler">
+        <java classname="eu.wiss_ki.util.events.JAWSWordNetEventCompiler" failonerror="true" fork="yes">
+            <arg line="/home/simnscho/daten/wordnet/WordNet-3.0/dict&#10;${project_loc}/data/event/event-lex_en.xml&#10;${project_loc}/data/event/event-lex-compiled_en.xml"/>
+            <classpath refid="aapi.classpath"/>
+        </java>
+    </target>
+    <target name="TestClie">
+        <java classname="TestClie" failonerror="true" fork="yes">
+            <classpath refid="aapi.classpath"/>
+        </java>
+    </target>
+</project>

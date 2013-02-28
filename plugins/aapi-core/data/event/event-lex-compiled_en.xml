@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><mapping>
+
+<event name="E67.Birth">
+	
+	
+	
+	
+<word>birth</word><phrase><word>give</word><word>birth</word></phrase><word>childbirth</word><word>childbear</word><word pos="a">born</word><word>bear</word><word>+</word></event>
+
+<event name="E69.Death">
+	
+	
+	
+	
+	<word>died</word><word>death</word><word>brain</word><word>death</word><phrase><word>cerebr</word><word>death</word></phrase><word>grave</word><word>die</word></event>
+
+<event name="E8.Acquisition">
+	
+	
+	
+		
+	
+	
+	
+	
+		
+			
+<word>acquisit</word><word>digest</word><word>intern</word><word>incorpor</word><word>carry-ov</word><word>acquir</word><word>adopt</word><phrase><word>take</word><word>on</word></phrase><word>take</word><word>win</word><word>gain</word><word>becom</word><word>get</word><word>took</word><word>taken</word></event>
+
+<event name="E9.Move">
+	
+	
+	
+	
+	
+<word>move</word><word>exchang</word><word>displac</word><word>mobil</word><word>circul</word><word>reloc</word><word>disloc</word><word>slip</word><word>translat</word><word>send</word><word>place</word><phrase><word>shake</word><word>up</word></phrase><phrase><word>stir</word><word>up</word></phrase><phrase><word>rais</word><word>up</word></phrase><word>transport</word><word>carri</word><word>put</word><word>posit</word><word>lai</word><word>unseat</word><word>push</word><word>shift</word><word>elev</word><word>bring</word><word>drive</word><word>drove</word><word>driven</word><word>go</word><word>went</word><word>gone</word></event>
+
+<event name="E12.Production">
+	
+	
+	
+	
+	
+	
+<word>product</word><word>make</word><word>creation</word><word>composit</word><word>invent</word><word>innov</word><word>needlework</word><word>needlecraft</word><word>remak</word><word>by-product</word><word>byproduct</word><phrase><word>end</word><word>product</word></phrase><word>output</word><word>turnout</word><word>work</word><phrase><word>piec</word><word>of</word><word>work</word></phrase><word>yield</word><word>sculptur</word><phrase><word>magnum</word><word>opu</word></phrase><word>made</word><word>produce</word><word>produced</word></event>
+
+
+<event name="E36.Visual_Item|ecrm:P138.represents|ecrm:E22.Man-Made_Object|ecrm:P46.is_composed_of|ecrm:E20.Biological_Object|ecrm:P41I.was_classified_by|ecrm:E17.Type_Assignment">
+
+<word>depict</word><word>draw</word><word>paint</word><word>show</word>
+	<word>shown</word>
+	<word>illustrate</word><word>illustration</word>
+
+</event>
+
+
+</mapping>

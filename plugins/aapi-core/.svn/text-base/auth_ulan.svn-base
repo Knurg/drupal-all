@@ -1,0 +1,2 @@
+#!/bin/bash
+java -cp .:bin:lib/stemmer.jar:lib/shiftone-cache.jar:lib/util.jar:lib/jan.jar:lib/json.jar:lib/er-tagger.jar:lib/antlr-2.7.5.jar:lib/mysql-connector-java-5.0.8-bin.jar eu.wiss_ki.auth.Converter 'Getty ULAN' 'http://wisski.dyndns-server.com/wisski/wisski/authorities/lookupTerms/Getty+ULAN?termStart=' 'http://wisski.dyndns-server.com/wisski/wisski/authorities/lookupTermInfo/Getty+ULAN?entryID=' 2>/tmp/auth_ulan.log &

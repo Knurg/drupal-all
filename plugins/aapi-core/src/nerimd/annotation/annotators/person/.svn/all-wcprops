@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/repos/Projects/!svn/ver/4814/WissKI/software/aapi/aapi-core/src/nerimd/annotation/annotators/person
+END
+RelationAnnotator.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/repos/Projects/!svn/ver/4814/WissKI/software/aapi/aapi-core/src/nerimd/annotation/annotators/person/RelationAnnotator.java
+END
+TitleAnnotator.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/repos/Projects/!svn/ver/4814/WissKI/software/aapi/aapi-core/src/nerimd/annotation/annotators/person/TitleAnnotator.java
+END
+PersonAnnotator.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/repos/Projects/!svn/ver/4814/WissKI/software/aapi/aapi-core/src/nerimd/annotation/annotators/person/PersonAnnotator.java
+END
+NamePartAnnotator.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/repos/Projects/!svn/ver/4814/WissKI/software/aapi/aapi-core/src/nerimd/annotation/annotators/person/NamePartAnnotator.java
+END
+ProfessionAnnotator.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/repos/Projects/!svn/ver/4814/WissKI/software/aapi/aapi-core/src/nerimd/annotation/annotators/person/ProfessionAnnotator.java
+END

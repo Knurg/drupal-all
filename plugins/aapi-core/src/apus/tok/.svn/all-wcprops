@@ -1,0 +1,107 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/repos/Projects/!svn/ver/4814/WissKI/software/aapi/aapi-core/src/apus/tok
+END
+BaseTokenizer.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/repos/Projects/!svn/ver/4814/WissKI/software/aapi/aapi-core/src/apus/tok/BaseTokenizer.java
+END
+HyphenGlue.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/repos/Projects/!svn/ver/4814/WissKI/software/aapi/aapi-core/src/apus/tok/HyphenGlue.java
+END
+Tokenizer.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/repos/Projects/!svn/ver/4814/WissKI/software/aapi/aapi-core/src/apus/tok/Tokenizer.java
+END
+ETokenConverter.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/repos/Projects/!svn/ver/4814/WissKI/software/aapi/aapi-core/src/apus/tok/ETokenConverter.java
+END
+TokenUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/repos/Projects/!svn/ver/4814/WissKI/software/aapi/aapi-core/src/apus/tok/TokenUtil.java
+END
+Token.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/repos/Projects/!svn/ver/4574/WissKI/software/aapi/aapi-core/src/apus/tok/Token.java
+END
+LCAbbrev.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/repos/Projects/!svn/ver/4814/WissKI/software/aapi/aapi-core/src/apus/tok/LCAbbrev.java
+END
+PostProcessor.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/repos/Projects/!svn/ver/4814/WissKI/software/aapi/aapi-core/src/apus/tok/PostProcessor.java
+END
+EToken.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/repos/Projects/!svn/ver/4574/WissKI/software/aapi/aapi-core/src/apus/tok/EToken.java
+END
+ListGlue.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/repos/Projects/!svn/ver/4814/WissKI/software/aapi/aapi-core/src/apus/tok/ListGlue.java
+END
+BufferedPostProcessor.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/repos/Projects/!svn/ver/4814/WissKI/software/aapi/aapi-core/src/apus/tok/BufferedPostProcessor.java
+END
+TokenizerException.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/repos/Projects/!svn/ver/4574/WissKI/software/aapi/aapi-core/src/apus/tok/TokenizerException.java
+END
+PatternGlue.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/repos/Projects/!svn/ver/4814/WissKI/software/aapi/aapi-core/src/apus/tok/PatternGlue.java
+END
+DateGlue.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/repos/Projects/!svn/ver/4814/WissKI/software/aapi/aapi-core/src/apus/tok/DateGlue.java
+END
+SentenceSplitter.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/repos/Projects/!svn/ver/4814/WissKI/software/aapi/aapi-core/src/apus/tok/SentenceSplitter.java
+END
+TokenRange.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/repos/Projects/!svn/ver/4574/WissKI/software/aapi/aapi-core/src/apus/tok/TokenRange.java
+END
+ReaderTokenizer.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/repos/Projects/!svn/ver/4814/WissKI/software/aapi/aapi-core/src/apus/tok/ReaderTokenizer.java
+END

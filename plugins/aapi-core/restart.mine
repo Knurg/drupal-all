@@ -1,0 +1,4 @@
+#!/bin/bash
+printf 'shutdown' | nc -w 10 localhost 10815
+sleep 2
+/srv/www/htdocs/dev/sites/all/plugins/aapi-core/aapi

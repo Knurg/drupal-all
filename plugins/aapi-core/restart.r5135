@@ -1,0 +1,4 @@
+#!/bin/bash
+killall java
+sleep 2
+/home/scholz/aapi-core/aapi

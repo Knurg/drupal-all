@@ -1,0 +1,30 @@
+E5.Event
+E7.Activity:tun/V,machen/V
+E66.Formation:gründen/V,Gründung/N,zusammenschließen/V,Zusammenschluß/N,
+E13.Attribute_Assignment
+E17.Type_Assignment
+E15.Identifier_Assignment
+E14.Condition_Assessment
+E16.Measurement
+E85.Joining
+E86.Leaving
+E87.Curation_Activity:datieren/V,Datierung/N
+E11.Modification
+E12.Production:herstellen/V,Herstellung/N,fertigen/V,Fertigung/N,anfertigen/V,Anfertigung/N
+E80.Part_Removal
+E79.Part_Addition
+E65.Creation
+E83.Type_Creation
+E10.Transfer_of_Custody
+E9.Move
+E8.Acquisition:kaufen/V,Kauf/N,erwerben/V,Erwerb/N,in Besitz/N gelangen/V/! ,in Besitz/N nehmen/V/! ,besitzen/V,haben/V,
+E63.Beginning_of_Existence
+E67.Birth:gebären/V,Geburt/N,zur Welt/N kommen/V/!, zur Welt/N bringen/V/!
+E65.Creation
+E83.Type_Creation
+E81.Transformation
+E64.End_of_Existence
+E69.Death:entschlafen/V,sterben/V,Tod/N,ermorden/V,töten/V,umbringen/V,Tötung/N,umkommen/V, ums Leben/N kommen/V/!
+E68.Dissolution
+E81.Transformation
+E6.Destruction:kaputt gehen/V/!,zerbrechen/V,zerstören/V,Zerstörung/N,zerfallen/V,Zerfall/N

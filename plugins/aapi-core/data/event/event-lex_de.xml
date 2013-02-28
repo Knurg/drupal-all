@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mapping>
+
+<event name="E5.Event">
+	<synset pos="n" wordsense="1">Ereignis</synset>
+	<synset pos="v" wordsense="1">ereignen</synset>
+	<synset pos="n" wordsense="1">Vorgang</synset>
+	<synset pos="v" wordsense="1">vorgehen</synset>
+</event>
+
+<event name="E6.Destruction">
+	<synset pos="n" wordsense="1">Zerstörung</synset>
+	<synset pos="v" wordsense="1">zerstören</synset>
+	<synset pos="a" wordsense="1">zerstört</synset>
+</event>
+
+<event name="E7.Activity">
+	<synset pos="n" wordsense="2">Aktivität</synset>
+</event>
+
+<event name="E8.Aquisition">
+	<synset pos="n" wordsense="1">Erwerb</synset>
+	<synset pos="v" wordsense="1">erwerben</synset>
+	<word pos="a">erworben</word>
+	<synset pos="n" wordsense="1">Akquisition</synset>
+	<synset pos="v" wordsense="1">akquirieren</synset>
+	<word pos="a">akquiriert</word>
+</event>
+
+
+<event name="E9.Move">
+	<synset pos="n" wordsense="3">Bewegung</synset>
+	<synset pos="v" wordsense="6">bewegen</synset>
+	<word pos="n">Translokation</word>
+</event>
+
+<event name="E10.Transfer_of_Custody">
+	<phrase><word pos="n">Übertragung</word><word>der</word><word pos="n">Aufsicht</word></phrase>
+</event>
+
+<event name="E11.Modification">
+	<synset pos="n" wordsense="1">Modifikation</synset>
+	<synset pos="n" wordsense="1">Modifizierung</synset>
+	<synset pos="v" wordsense="1">modifizieren</synset>
+	<word pos="a">modifiziert</word>
+	<synset pos="n" wordsense="1">Abänderung</synset>
+	<synset pos="v" wordsense="1">abändern</synset>
+	<word pos="a">abgeändert</word>
+	<synset pos="n" wordsense="1">Änderung</synset>
+	<synset pos="v" wordsense="1">ändern</synset>
+	<word pos="a">geändert</word>
+</event>
+
+<event name="E12.Production">
+	<synset pos="n" wordsense="1">Produktion</synset>
+	<synset pos="v" wordsense="3">produzieren</synset>
+	<word pos="a">produziert</word>
+	<synset pos="n" wordsense="1">Anfertigung</synset>
+	<synset pos="v" wordsense="1">anfertigen</synset>
+	<word pos="a">angefertigt</word>
+	<synset pos="n" wordsense="1">Erstellung</synset>
+	<synset pos="v" wordsense="1">erstellen</synset>
+	<word pos="a">erstellt</word>
+	<synset pos="n" wordsense="1">Erzeugung</synset>
+	<synset pos="v" wordsense="2">erzeugen</synset>
+	<word pos="a">erzeugt</word>
+	<synset pos="n" wordsense="1">Fabrikation</synset>
+	<synset pos="v" wordsense="1">fabrizieren</synset>
+	<word pos="a">fabriziert</word>
+	<synset pos="n" wordsense="1">Fertigung</synset>
+	<synset pos="v" wordsense="1">fertigen</synset>
+	<word pos="a">gefertigt</word>
+	<synset pos="n" wordsense="1">Herstellung</synset>
+	<synset pos="v" wordsense="2">herstellen</synset>
+</event>
+
+<event name="E13.Attribute_Assignment">
+	<phrase><word pos="n">Zuweisung</word> <word>eines</word> <word pos="n">Attributs</word></phrase>
+</event>
+
+<event name="E14.Condition_Assessment">
+	<word pos="n">Zustandseinschätzung</word>
+	<word pos="n">Zustandsbeurteilung</word>
+</event>
+
+<event name="E15.Identifier_Assignment">
+	<phrase><word pos="n">Zuweisung</word> <word>einer</word> <word pos="n">Kennung</word></phrase>
+</event>
+
+<event name="E16.Measurement">
+	<synset pos="n" wordsense="1">Messung</synset>
+	<synset pos="v" wordsense="2">messen</synset>
+	<synset pos="n" wordsense="1">Vermessung</synset>
+</event>
+
+<event name="E17.Type_Assignment">
+	<phrase><word pos="n">Zuweisung</word> <word>eines</word> <word pos="n">Typs</word></phrase>
+</event>
+
+<event name="E63.Beginning_of_Existence">
+	<synset pos="n" wordsense="1">Entstehung</synset>
+	<synset pos="v" wordsense="2">entstehen</synset>
+	<word pos="n">Existenzbeginn</word>
+	<word pos="n">Daseinsbeginn</word>
+</event>
+
+<event name="E64.End_of_Existence">
+	<word pos="n">Existenzende</word>
+	<word pos="n">Daseinsende</word>
+	<phrase><word pos="n">Aufhören</word><word>zu</word><word pos="v">existieren</word></phrase>
+</event>
+
+<event name="E65.Creation">
+	<synset pos="n" wordsense="1">Erschaffung</synset>
+	<synset pos="v" wordsense="1">erschaffen</synset>
+	<synset pos="n" wordsense="1">Kreation</synset>
+	<synset pos="v" wordsense="1">kreieren</synset>
+	<synset pos="n" wordsense="1">Schöpfung</synset>
+	<synset pos="v" wordsense="2">schöpfen</synset>
+	<word pos="v">schaffen</word>
+</event>
+
+<event name="E66.Formation">
+	<synset pos="n" wordsense="1">Formierung</synset>
+	<synset pos="v" wordsense="1">formieren</synset>
+	<synset pos="v" wordsense="1">formen</synset>
+	<synset pos="n" wordsense="1">Bildung</synset>
+	<synset pos="v" wordsense="1">bilden</synset>
+	<synset pos="n" wordsense="1">Gründung</synset>
+	<synset pos="v" wordsense="3">gründen</synset>
+	<phrase><word pos="n">Gründung</word><word>einer</word><word pos="n">Gruppe</word></phrase>
+	<phrase><word pos="n">Formierung</word><word>einer</word><word pos="n">Gruppe</word></phrase>
+	<phrase><word pos="n">Bildung</word><word>einer</word><word pos="n">Gruppe</word></phrase>
+</event>
+
+<event name="E67.Birth">
+	<synset pos="n" wordsense="2">Geburt</synset>
+	<synset pos="v" wordsense="1">gebären</synset>
+	<synset pos="a" wordsense="1">geboren</synset>
+	<phrase><word>zur</word><word pos="n">Welt</word><word pos="v">bringen</word></phrase>
+	<word pos="n">Niederkunft</word>
+</event>
+
+<event name="E68.Dissolution">
+	<synset pos="n" wordsense="3">Auflösung</synset>
+	<synset pos="v" wordsense="3">auflösen</synset>
+</event>
+
+<event name="E69.Death">
+	<synset pos="n" wordsense="1">Tod</synset>
+	<synset pos="n" wordsense="1">Ableben</synset>
+	<synset pos="n" wordsense="1">Exitus</synset>
+	<synset pos="n" wordsense="1">Lebensende</synset>
+	<synset pos="n" wordsense="1">Sterben</synset>
+	<synset pos="v" wordsense="2">sterben</synset>
+	<synset pos="a" wordsense="1">tot</synset>
+</event>
+
+<event name="E79.Part_Addition">
+	<phrase><word pos="n">Hinzufügung</word> <word>eines</word> <word pos="n">Teils</word></phrase>
+</event>
+
+<event name="E80.Part_Removal">
+	<phrase><word pos="n">Entfernung</word> <word>eines</word> <word pos="n">Teils</word></phrase>
+</event>
+
+<event name="E81.Transformation">
+	<synset pos="n" wordsense="1">Transformation</synset>
+	<synset pos="v" wordsense="2">transformieren</synset>
+	<synset pos="n" wordsense="1">Umwandlung</synset>
+	<synset pos="v" wordsense="1">umwandeln</synset>
+	<synset pos="n" wordsense="1">Verwandlung</synset>
+	<synset pos="v" wordsense="3">verwandeln</synset>
+	<word pos="n">Verwandlungsprozess</word>
+	<synset pos="n" wordsense="1">Metamorphose</synset>
+	<synset pos="v" wordsense="1">metamorphosieren</synset>
+</event>
+
+<event name="E83.Type_Creation">
+	<word pos="n">Typenerschaffung</word>
+	<word pos="n">Typenkreation</word>
+	<word pos="n">Typenschöpfung</word>
+	<phrase><word pos="n">Erschaffung</word><word>eines</word><word pos="n">Typs</word></phrase>
+	<phrase><word pos="n">Kreation</word><word>eines</word><word pos="n">Typs</word></phrase>
+	<phrase><word pos="n">Schöpfung</word><word>eines</word><word pos="n">Typs</word></phrase>
+</event>
+
+<event name="E85.Joining">
+	<synset pos="n" wordsense="2">Beitritt</synset>
+	<synset pos="n" wordsense="2">beitreten</synset>
+	<word pos="a">beigetreten</word>
+	<phrase><word>Einer</word><word pos="n">Gruppe</word><word pos="v">beitreten</word></phrase>
+</event>
+
+<event name="E86.Leaving">
+	<word pos="n">Verlassen</word>
+	<synset pos="v" wordsense="1">verlassen</synset>
+	<phrase><word>Eine</word><word pos="n">Gruppe</word><word pos="v">verlassen</word></phrase>
+</event>
+
+<event name="E87.Curation_Activity">
+	<word pos="n">Kuratierungsvorgang</word>
+</event>
+
+</mapping>

@@ -1,0 +1,35 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>OWL2DIG User Guide</title>
+</head>
+
+<body>
+
+<p><font size="4">Name:</font></p>
+<p><font size="5">&nbsp;&nbsp;&nbsp; </font>owl2dig - Translator from OWL to DIG</p>
+<p><font size="4">SYNOPSIS:</font></p>
+<p><font size="5">&nbsp;&nbsp;&nbsp; </font><i>owl2dig</i> <u>owlfile</u> <u>
+digfile</u> [kb-uri]</p>
+<p>Description:</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i>owl2dig</i> reads the input owlfile into a 
+Jena OntModel and converts it into DIG by translating every RDF triple of the 
+OWL model. The input OWL file must conform to OWL-DL standard which means that 
+an instance and a class can never be related by a property except for the 
+RDF:type property. </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; After executing the command, the output file 
+can be sent to a DIG-compliant reasoner.</p>
+<p>Parameters:</p>
+<p>&nbsp;&nbsp;&nbsp; owlfile is the input OWL file name.</p>
+<p>&nbsp;&nbsp;&nbsp; digfile is the output DIG file name.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</p>
+<p>&nbsp;&nbsp;&nbsp; kb-uri is the knowledgebase identifier which is defined in 
+DIG 1.1. If not specified, the tells element of the DIG document won't have the 
+uri attribute.</p>
+<p>　</p>
+
+</body>
+
+</html>

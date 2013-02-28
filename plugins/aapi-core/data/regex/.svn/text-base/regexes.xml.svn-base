@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<patterns>
+<pattern><tokens><token><regex>Bad</regex></token><token><regex>[A-ZÄÖÜ].+</regex></token></tokens><features><feature name='type'>Ort</feature></features></pattern>
+<pattern><tokens><token><regex>([AEIOUÄÖÜ].+|[A-ZÄÖÜ].*[aeiouäöü].*)(ingen|burg|berg|bach|stadt|stedt|dorf)</regex></token></tokens><features><feature name='type'>Ort</feature></features></pattern>
+</patterns>

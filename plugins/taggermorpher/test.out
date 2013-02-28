@@ -1,0 +1,18 @@
+sent([w('Das', morph:[flexInfo:[]..category:'PRON'..flexInfoClass:..lemma:..flexInfoString:, flexInfo:[]..category:'PRON'..flexInfoClass:..lemma:..flexInfoString:]..pos:'PDS')
+w('ist', morph:[flexInfo:[modus:'indikativ'..tempus:'praesens'..numerus:'sg'..person:'3']..category:'V'..flexInfoClass:'morph.VFlexMerkmal'..lemma:..flexInfoString:'[FeatureStructure[[
+  modus: "indikativ",
+  tempus: "praesens",
+  numerus: "sg",
+  person: "3"]]]']..pos:'VAFIN')
+w('ein', morph:[flexInfo:(dektypiii:[genus:'mask'..numerus:'sg'..kasus:'nom', genus:'neut'..numerus:'sg'..kasus:'nom', genus:'neut'..numerus:'sg'..kasus:'akk'])..category:'DET'..flexInfoClass:'morph.NFlexMerkmalDektyp'..lemma:'EIN'..flexInfoString:'{dektypiii=[FeatureStructure[[genus: "mask",numerus: "sg",kasus: "nom"]], FeatureStructure[[genus: "neut",numerus: "sg",kasus: "nom"]], FeatureStructure[[genus: "neut",numerus: "sg",kasus: "akk"]]]}']..pos:'ART')
+w('Haus', morph:[flexInfo:[genus:'neut'..numerus:'sg'..kasus:'nom', genus:'neut'..numerus:'sg'..kasus:'dat', genus:'neut'..numerus:'sg'..kasus:'akk']..category:'N'..flexInfoClass:'morph.NFlexMerkmalEinfach'..lemma:'HAUS'..flexInfoString:'[FeatureStructure[[genus: "neut",numerus: "sg",kasus: "nom"]], FeatureStructure[[genus: "neut",numerus: "sg",kasus: "dat"]], FeatureStructure[[genus: "neut",numerus: "sg",kasus: "akk"]]]']..pos:'NN')
+w('.', morph:[]..pos:'$.')
+w('Das', morph:[flexInfo:(dektypii:[genus:'neut'..numerus:'sg'..kasus:'nom', genus:'neut'..numerus:'sg'..kasus:'akk'])..category:'DET'..flexInfoClass:'morph.NFlexMerkmalDektyp'..lemma:'DER'..flexInfoString:'{dektypii=[FeatureStructure[[genus: "neut",numerus: "sg",kasus: "nom"]], FeatureStructure[[genus: "neut",numerus: "sg",kasus: "akk"]]]}']..pos:'ART')
+w('Dach', morph:[flexInfo:[genus:'neut'..numerus:'sg'..kasus:'nom', genus:'neut'..numerus:'sg'..kasus:'dat', genus:'neut'..numerus:'sg'..kasus:'akk']..category:'N'..flexInfoClass:'morph.NFlexMerkmalEinfach'..lemma:'DACH'..flexInfoString:'[FeatureStructure[[genus: "neut",numerus: "sg",kasus: "nom"]], FeatureStructure[[genus: "neut",numerus: "sg",kasus: "dat"]], FeatureStructure[[genus: "neut",numerus: "sg",kasus: "akk"]]]']..pos:'NN')
+w('ist', morph:[flexInfo:[modus:'indikativ'..tempus:'praesens'..numerus:'sg'..person:'3']..category:'V'..flexInfoClass:'morph.VFlexMerkmal'..lemma:..flexInfoString:'[FeatureStructure[[
+  modus: "indikativ",
+  tempus: "praesens",
+  numerus: "sg",
+  person: "3"]]]']..pos:'VAFIN')
+w('schäbig', morph:[flexInfo:[]..category:'ADJ'..flexInfoClass:..lemma:'SCHÄBIG'..steigerungsform:(grad:'pos')..flexInfoString:]..pos:'ADJD')
+w('.', morph:[]..pos:'$.'

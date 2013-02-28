@@ -1,0 +1,8 @@
+#!/bin/bash
+<<<<<<< .mine
+printf 'shutdown' | nc -w 10 localhost 10815
+=======
+printf 'shutdown' | nc -w 10 localhost 20100
+>>>>>>> .r7433
+sleep 2
+/srv/www/htdocs/dev/sites/all/plugins/aapi-core/aapi

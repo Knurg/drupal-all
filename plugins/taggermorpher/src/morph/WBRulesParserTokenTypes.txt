@@ -1,0 +1,19 @@
+// $ANTLR : wbrules_parser.g -> WBRulesParserTokenTypes.txt$
+WBRulesParser    // output token vocab name
+LPAREN=4
+SYM_SYMBOL=5
+RPAREN=6
+ORTSNAME="=ortsname"=7
+SYM_DIGIT=8
+AGREEKATWB="agree_kat_wb-subcat"=9
+AGREEWBKAT="agree_wb-subcat_kat"=10
+FUGE="fuge=-"=11
+HEADPRAEF="headpraef"=12
+KONJ="konj=und"=13
+NICHTALLO="nicht_allo"=14
+NICHTAUCHVERB="nicht_auch_verb"=15
+NICHTVERBZUS="nicht_verbzus"=16
+NICHTWORTANF="nicht_wortanfang"=17
+PRAEF="praef=un"=18
+NICHTADJFLEKT="nicht_adjflek"=19
+WS=20

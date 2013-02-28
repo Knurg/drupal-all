@@ -1,0 +1,49 @@
+=================================
+      Gesamtkonzeption der
+      
+semi-automatischen Textannotation
+=================================
+
+  Allgemeines
+---------------
+
+Text wird mithilfe eines Rich-Text-Editors (TinyMCE) auf dem Client erstellt.
+Der Editor schickt bereits während des Ediervorgangs die Textteile an das
+Analyse-/Annotationsmodul, das auf dem WissKI-Server läuft. Das Annotationsmodul
+gibt Annotationsvorschläge und evtl. weiterführende Informationen an den Editor
+zurück. Der Benutzer hat dabei stets die Möglichkeit, die Entscheidungen der
+automatischen Analyse zu korrigieren bzw. ergänzen.
+Eine Implementierung der gesamten Analysefunktionalität auf Seiten des
+Clients/Editors erscheint nicht praktikabel, da zum einen eine ausreichende
+Performanz auf dem Client nicht gewährleistet werden kann. Zum anderen wäre eine
+Portierung (Reimplementierung) fast aller schon bestehenden NLP-Komponenten nach
+JavaScript notwendig. 
+
+Der Austausch von Informationen zwischen Editor und Annotationsmodul wird durch
+sog. Ereignisse realisiert. Ein Ereignis kann verschiedene Veränderungen der
+Textstruktur repräsentieren: Einfügen und Revidieren von Text, Angabe von
+Annotationsvorschlägen, Einfügen einer Annotation, etc. Für die Kodierung und
+Übermittlung der Ereignisse wird JSON+HTTP verwendet.
+
+
+  Textanalyse und -annotation
+-------------------------------
+
+In einem ersten Schritt werden Termini aus den im WissKI-System geladenen Name
+Authorities erkannt. Dabei wird zum einen auf eine sprachunabhängige einfache
+Term-Erkennung gesetzt. Um die Erkennungsrate zu steigern, werden zusätzlich für
+spezielle Term-Kategorien, wie z.B. Personennamen, sprachspezifische
+Erkennungsalgorithmen verwendet. Letztere werden im Laufe dieses Projekts nur
+für Deutsch implementiert. 
+
+%Ein Hauptaugenmerk liegt auf einer effizienten Implementierung der
+%Term-Erkennung, um niedrige Antwortzeiten für den interaktive Annotationsprozess
+%zu gewährleisten.
+Die gefundenen Termini werden CRM-konform in XHTML+RDFa annotiert. Hierbei
+werden für spezielle Termini
+
+In einem zweiten Schritt werden ereignisbezogene Wörter im Text erkannt und
+einem CRM Event (E5 und Unterklassen) zugeordnet. Durch Semantic Role Labeling-
+Algorithmen werden geeignete Objekte gesucht, um geeignete im Text erkannte
+Objekte (die Termini des ersten Schritts) für die dem Event zugeordneten
+Properties zu eruieren.

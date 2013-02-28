@@ -1,0 +1,321 @@
+cd /tmp/NLG/morph/
+java morph.NLGMorphModule
+
+reading flexives
+reading lexemes
+creating tvz
+reading rules
+reading hypos
+MORPH-MODUL FLAG-STATUS:
+*FLEX_ON*    : true
+*WB_ON*      : true
+*HYPO_ON*    : true
+*MIN_HYPO*   : false
+*ALLE_WBSEG* : true
+*TRACE*      : true
+... done!
+
+----------- analyzeToString --------------
+-- Calling flexAnalyze  --------------
+ANALYSE stamm: Dies
+ANALYSE endung: 
+ANALYSE praefix_ge: false
+added Zerlegung
+ANALYSE stamm: Die
+ANALYSE endung: s
+ANALYSE praefix_ge: false
+added Zerlegung
+ANALYSE stamm: Di
+ANALYSE endung: es
+ANALYSE praefix_ge: false
+ANALYSE stamm: D
+ANALYSE endung: ies
+ANALYSE praefix_ge: false
+pruefeZerlegungen: java.util.Vector$1@50d89c
+pruefeZerlegungen VF Merkmal
+
+Kategorie: PRON
+Merkmale: [FeatureStructure[[kasus: "nom",prontyp: "INDEFINIT",numerus: "sg"]], FeatureStructure[[kasus: "akk",prontyp: "INDEFINIT",numerus: "sg"]]]
+
+pruefeZerlegungen: java.util.Vector$1@50d89c
+pruefeZerlegungen VF Merkmal
+
+Kategorie: DET
+Merkmale: {dektypii=[FeatureStructure[[kasus: "nom",genus: "mask",numerus: "pl"]], FeatureStructure[[kasus: "akk",genus: "mask",numerus: "pl"]], FeatureStructure[[kasus: "nom",genus: "fem",numerus: "sg"]], FeatureStructure[[kasus: "akk",genus: "fem",numerus: "sg"]], FeatureStructure[[kasus: "nom",genus: "fem",numerus: "pl"]], FeatureStructure[[kasus: "akk",genus: "fem",numerus: "pl"]], FeatureStructure[[kasus: "nom",genus: "neut",numerus: "pl"]], FeatureStructure[[kasus: "akk",genus: "neut",numerus: "pl"]]]}
+Grundform: DER
+not processed: VF Merkmal
+
+Kategorie: DET
+Merkmale: {dektypii=[FeatureStructure[[kasus: "nom",genus: "mask",numerus: "pl"]], FeatureStructure[[kasus: "akk",genus: "mask",numerus: "pl"]], FeatureStructure[[kasus: "nom",genus: "fem",numerus: "sg"]], FeatureStructure[[kasus: "akk",genus: "fem",numerus: "sg"]], FeatureStructure[[kasus: "nom",genus: "fem",numerus: "pl"]], FeatureStructure[[kasus: "akk",genus: "fem",numerus: "pl"]], FeatureStructure[[kasus: "nom",genus: "neut",numerus: "pl"]], FeatureStructure[[kasus: "akk",genus: "neut",numerus: "pl"]]]}
+Grundform: DER
+pruefeZerlegungen: processing not implemented.
+pruefeZerlegungen VF Merkmal
+
+Kategorie: PRON
+Merkmale: [FeatureStructure[[
+  kasus: "nom",
+  prontyp: "DEMONSTRATIV",
+  genus: "mask",
+  numerus: "pl"]], FeatureStructure[[
+  kasus: "akk",
+  prontyp: "DEMONSTRATIV",
+  genus: "mask",
+  numerus: "pl"]], FeatureStructure[[
+  kasus: "nom",
+  prontyp: "DEMONSTRATIV",
+  genus: "fem",
+  numerus: "sg"]], FeatureStructure[[
+  kasus: "akk",
+  prontyp: "DEMONSTRATIV",
+  genus: "fem",
+  numerus: "sg"]], FeatureStructure[[
+  kasus: "nom",
+  prontyp: "DEMONSTRATIV",
+  genus: "fem",
+  numerus: "pl"]], FeatureStructure[[
+  kasus: "akk",
+  prontyp: "DEMONSTRATIV",
+  genus: "fem",
+  numerus: "pl"]], FeatureStructure[[
+  kasus: "nom",
+  prontyp: "DEMONSTRATIV",
+  genus: "neut",
+  numerus: "pl"]], FeatureStructure[[
+  kasus: "akk",
+  prontyp: "DEMONSTRATIV",
+  genus: "neut",
+  numerus: "pl"]]]
+
+not processed: VF Merkmal
+
+Kategorie: PRON
+Merkmale: [FeatureStructure[[
+  kasus: "nom",
+  prontyp: "DEMONSTRATIV",
+  genus: "mask",
+  numerus: "pl"]], FeatureStructure[[
+  kasus: "akk",
+  prontyp: "DEMONSTRATIV",
+  genus: "mask",
+  numerus: "pl"]], FeatureStructure[[
+  kasus: "nom",
+  prontyp: "DEMONSTRATIV",
+  genus: "fem",
+  numerus: "sg"]], FeatureStructure[[
+  kasus: "akk",
+  prontyp: "DEMONSTRATIV",
+  genus: "fem",
+  numerus: "sg"]], FeatureStructure[[
+  kasus: "nom",
+  prontyp: "DEMONSTRATIV",
+  genus: "fem",
+  numerus: "pl"]], FeatureStructure[[
+  kasus: "akk",
+  prontyp: "DEMONSTRATIV",
+  genus: "fem",
+  numerus: "pl"]], FeatureStructure[[
+  kasus: "nom",
+  prontyp: "DEMONSTRATIV",
+  genus: "neut",
+  numerus: "pl"]], FeatureStructure[[
+  kasus: "akk",
+  prontyp: "DEMONSTRATIV",
+  genus: "neut",
+  numerus: "pl"]]]
+
+pruefeZerlegungen: processing not implemented.
+pruefeZerlegungen VF Merkmal
+
+Kategorie: PRON
+Merkmale: [FeatureStructure[[kasus: "nom",prontyp: "RELATIV",genus: "mask",numerus: "pl"]], FeatureStructure[[kasus: "akk",prontyp: "RELATIV",genus: "mask",numerus: "pl"]], FeatureStructure[[kasus: "nom",prontyp: "RELATIV",genus: "fem",numerus: "sg"]], FeatureStructure[[kasus: "akk",prontyp: "RELATIV",genus: "fem",numerus: "sg"]], FeatureStructure[[kasus: "nom",prontyp: "RELATIV",genus: "fem",numerus: "pl"]], FeatureStructure[[kasus: "akk",prontyp: "RELATIV",genus: "fem",numerus: "pl"]], FeatureStructure[[kasus: "nom",prontyp: "RELATIV",genus: "neut",numerus: "pl"]], FeatureStructure[[kasus: "akk",prontyp: "RELATIV",genus: "neut",numerus: "pl"]]]
+
+not processed: VF Merkmal
+
+Kategorie: PRON
+Merkmale: [FeatureStructure[[kasus: "nom",prontyp: "RELATIV",genus: "mask",numerus: "pl"]], FeatureStructure[[kasus: "akk",prontyp: "RELATIV",genus: "mask",numerus: "pl"]], FeatureStructure[[kasus: "nom",prontyp: "RELATIV",genus: "fem",numerus: "sg"]], FeatureStructure[[kasus: "akk",prontyp: "RELATIV",genus: "fem",numerus: "sg"]], FeatureStructure[[kasus: "nom",prontyp: "RELATIV",genus: "fem",numerus: "pl"]], FeatureStructure[[kasus: "akk",prontyp: "RELATIV",genus: "fem",numerus: "pl"]], FeatureStructure[[kasus: "nom",prontyp: "RELATIV",genus: "neut",numerus: "pl"]], FeatureStructure[[kasus: "akk",prontyp: "RELATIV",genus: "neut",numerus: "pl"]]]
+
+pruefeZerlegungen: processing not implemented.
+-- Calling flexAnalyze done ----------
+RESULTAT: [morph analysis for: Dies
+Kategorie: PRON
+Merkmale: [FeatureStructure[[kasus: "nom",prontyp: "INDEFINIT",numerus: "sg"]], FeatureStructure[[kasus: "akk",prontyp: "INDEFINIT",numerus: "sg"]]]
+]
+------- end of analyzeToString -------
+----------- analyzeToString --------------
+-- Calling flexAnalyze  --------------
+ANALYSE stamm: ist
+ANALYSE endung: 
+ANALYSE praefix_ge: false
+added Zerlegung
+ANALYSE stamm: is
+ANALYSE endung: t
+ANALYSE praefix_ge: false
+ANALYSE stamm: i
+ANALYSE endung: st
+ANALYSE praefix_ge: false
+pruefeZerlegungen: java.util.Vector$1@2a0f6c
+pruefeZerlegungen VF Merkmal
+ Grundform: SEIN
+Kategorie: V
+Merkmale: [FeatureStructure[[
+  modus: "indikativ",
+  person: "3",
+  tempus: "praesens",
+  numerus: "sg"]]]
+
+pruefeZerlegungen Flexivklasse: SWM1
+ bound
+not processed: Flexivklasse: SWM1
+ bound
+pruefeZerlegungen: processing not implemented.
+-- Calling flexAnalyze done ----------
+RESULTAT: [morph analysis for: ist
+Kategorie: V
+Merkmale: [FeatureStructure[[
+  modus: "indikativ",
+  person: "3",
+  tempus: "praesens",
+  numerus: "sg"]]]
+]
+------- end of analyzeToString -------
+----------- analyzeToString --------------
+-- Calling flexAnalyze  --------------
+ANALYSE stamm: ein
+ANALYSE endung: 
+ANALYSE praefix_ge: false
+added Zerlegung
+ANALYSE stamm: ei
+ANALYSE endung: n
+ANALYSE praefix_ge: false
+added Zerlegung
+ANALYSE stamm: e
+ANALYSE endung: in
+ANALYSE praefix_ge: false
+pruefeZerlegungen: java.util.Vector$1@3570b0
+pruefeZerlegungen VF Merkmal
+
+Kategorie: DET
+Merkmale: {dektypiii=[FeatureStructure[[kasus: "nom",genus: "mask",numerus: "sg"]], FeatureStructure[[kasus: "nom",genus: "neut",numerus: "sg"]], FeatureStructure[[kasus: "akk",genus: "neut",numerus: "sg"]]]}
+Grundform: EIN
+pruefeZerlegungen VF Merkmal
+ MK: TVZ
+Kategorie: TVZ
+
+pruefeZerlegungen VF Merkmal
+ Grundform: EINS bound
+Kategorie: NUM
+
+not processed: VF Merkmal
+ Grundform: EINS bound
+Kategorie: NUM
+
+pruefeZerlegungen: processing not implemented.
+pruefeZerlegungen: java.util.Vector$1@3570b0
+pruefeZerlegungen Flexivklasse: STN
+
+BESTIMME Stamm: EI
+BESTIMME Wortform: ein
+BESTIMME Flexklasse: Flexivklasse: STN
+
+FLEXKLASS_SUCHE  kat: STN
+BESTIMME tornato
+-- Calling flexAnalyze done ----------
+RESULTAT: [morph analysis for: ein
+Kategorie: DET
+Merkmale: {dektypiii=[FeatureStructure[[kasus: "nom",genus: "mask",numerus: "sg"]], FeatureStructure[[kasus: "nom",genus: "neut",numerus: "sg"]], FeatureStructure[[kasus: "akk",genus: "neut",numerus: "sg"]]]}
+Grundform: EIN, morph analysis for: ein
+Kategorie: TVZ
+]
+------- end of analyzeToString -------
+----------- analyzeToString --------------
+-- Calling flexAnalyze  --------------
+ANALYSE stamm: Test
+ANALYSE endung: 
+ANALYSE praefix_ge: false
+added Zerlegung
+ANALYSE stamm: Tes
+ANALYSE endung: t
+ANALYSE praefix_ge: false
+ANALYSE stamm: Te
+ANALYSE endung: st
+ANALYSE praefix_ge: false
+ANALYSE stamm: T
+ANALYSE endung: est
+ANALYSE praefix_ge: false
+pruefeZerlegungen: java.util.Vector$1@431340
+pruefeZerlegungen Flexivklasse: M3
+
+BESTIMME Stamm: TEST
+BESTIMME Wortform: Test
+BESTIMME Flexklasse: Flexivklasse: M3
+
+FLEXKLASS_SUCHE  kat: M3
+BESTIMME tornato
+BESTIMME: features abarbeiten
+feature[i]: Kategorie: N
+Merkmale: [FeatureStructure[[kasus: "nom",genus: "mask",numerus: "sg"]], FeatureStructure[[kasus: "dat",genus: "mask",numerus: "sg"]], FeatureStructure[[kasus: "akk",genus: "mask",numerus: "sg"]]]
+
+BESTIMME kein RefMerkmal
+BESTIMME grundform: TEST
+i: 0
+ende
+pruefeZerlegungen Flexivklasse: SWV2
+
+BESTIMME Stamm: TEST
+BESTIMME Wortform: Test
+BESTIMME Flexklasse: Flexivklasse: SWV2
+
+FLEXKLASS_SUCHE  kat: SWV2
+BESTIMME tornato
+BESTIMME: features abarbeiten
+feature[i]: Kategorie: V
+Merkmale: [FeatureStructure[[typ: "imperativ",numerus: "sg"]]]
+
+BESTIMME kein RefMerkmal
+BESTIMME grundform: TESTEN
+i: 0
+ende
+-- Calling flexAnalyze done ----------
+RESULTAT: [morph analysis for: Test
+Kategorie: N
+Merkmale: [FeatureStructure[[kasus: "nom",genus: "mask",numerus: "sg"]], FeatureStructure[[kasus: "dat",genus: "mask",numerus: "sg"]], FeatureStructure[[kasus: "akk",genus: "mask",numerus: "sg"]]]
+Grundform: TEST, morph analysis for: Test
+Kategorie: V
+Merkmale: [FeatureStructure[[typ: "imperativ",numerus: "sg"]]]
+Grundform: TESTEN]
+------- end of analyzeToString -------
+
+Ergebnisse der Analyse
+======================
+Wort #1: 'Dies'
+RESULTAT: [morph analysis for: Dies
+Kategorie: PRON
+Merkmale: [FeatureStructure[[kasus: "nom",prontyp: "INDEFINIT",numerus: "sg"]], FeatureStructure[[kasus: "akk",prontyp: "INDEFINIT",numerus: "sg"]]]
+]
+Wort #2: 'ist'
+RESULTAT: [morph analysis for: ist
+Kategorie: V
+Merkmale: [FeatureStructure[[
+  modus: "indikativ",
+  person: "3",
+  tempus: "praesens",
+  numerus: "sg"]]]
+]
+Wort #3: 'ein'
+RESULTAT: [morph analysis for: ein
+Kategorie: DET
+Merkmale: {dektypiii=[FeatureStructure[[kasus: "nom",genus: "mask",numerus: "sg"]], FeatureStructure[[kasus: "nom",genus: "neut",numerus: "sg"]], FeatureStructure[[kasus: "akk",genus: "neut",numerus: "sg"]]]}
+Grundform: EIN, morph analysis for: ein
+Kategorie: TVZ
+]
+Wort #4: 'Test'
+RESULTAT: [morph analysis for: Test
+Kategorie: N
+Merkmale: [FeatureStructure[[kasus: "nom",genus: "mask",numerus: "sg"]], FeatureStructure[[kasus: "dat",genus: "mask",numerus: "sg"]], FeatureStructure[[kasus: "akk",genus: "mask",numerus: "sg"]]]
+Grundform: TEST, morph analysis for: Test
+Kategorie: V
+Merkmale: [FeatureStructure[[typ: "imperativ",numerus: "sg"]]]
+Grundform: TESTEN]
+
+
+Process morph.NLGMorphModule finished

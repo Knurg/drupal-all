@@ -1,0 +1,1168 @@
+(NIL ((ADJ1 ADJPOS ADJ2 ADJSUP) (UNFLADJ)
+                                (GRAD POS))
+     ((ORTNUMSUF) (L (ADJ))
+                  (L (N)
+                     (FLEXION
+                       (MASK (NOM SING)
+                             (DAT SING)
+                             (AKK SING)
+                             (NOM PLUR)
+                             (GEN PLUR)
+                             (AKK PLUR)))))
+     ((STM) (N)
+            (FLEXION
+              (MASK (NOM SING)
+                    (DAT SING)
+                    (AKK SING)
+                    (NOM PLUR)
+                    (GEN PLUR)
+                    (AKK PLUR))))
+     ((SWM1 SWM2 M1 M3 M4 M6 MSING1 MSING2 M7) (N)
+                                               (FLEXION
+                                                 (MASK (NOM SING)
+                                                       (DAT SING)
+                                                       (AKK SING))))
+     ((ENFSING2 ENFSING4) (EN)
+                    	  (FLEXION
+                    	    (FEM (NOM SING)
+                                 (DAT SING)
+                                 (AKK SING))))
+     ((ENMSING2 ENMSING4) (EN)
+                 	  (FLEXION
+                    	    (MASK (NOM SING)
+                                  (DAT SING)
+                                  (AKK SING))))
+     ((ENFSING3) (EN)
+                 (FLEXION
+                   (FEM (NOM SING)
+                        (GEN SING)
+			(DAT SING)
+                        (AKK SING))))
+     ((ENMSING3) (EN)
+                 (FLEXION
+                 (MASK (NOM SING)
+		       (GEN SING)
+                       (DAT SING)
+                       (AKK SING))))
+
+     ((M2) (N)
+           (FLEXION
+             (MASK (NOM SING)
+                   (DAT SING)
+                   (AKK SING)
+                   (NOM PLUR)
+                   (GEN PLUR)
+                   (DAT PLUR)
+                   (AKK PLUR))))
+     ((MSING3) (N)
+               (FLEXION
+                 (MASK (NOM SING)
+                       (GEN SING)
+                       (DAT SING)
+                       (AKK SING))))
+     ((NSING3) (N)
+               (FLEXION
+                 (NEUT (NOM SING)
+                       (GEN SING)
+                       (DAT SING)
+                       (AKK SING))))
+     ((MPLUR3) (N)
+               (FLEXION (MASK (NOM PLUR)
+                              (GEN PLUR)
+                              (AKK PLUR))))
+     ((MPLUR4) (N)
+               (FLEXION
+                 (MASK (NOM PLUR)
+                       (GEN PLUR)
+                       (DAT PLUR)
+                       (AKK PLUR))))
+     ((FPLUR3) (N)
+               (FLEXION
+                 (FEM (NOM PLUR)
+                      (GEN PLUR)
+                      (DAT PLUR)
+                      (AKK PLUR))))
+     ((M5) (N)
+           (FLEXION (MASK (NOM SING))))
+     ((FEM1 FEM2 FEM3 FEM4 FEM5 FSING1) (N)
+                                        (FLEXION
+                                          (FEM (NOM SING)
+                                               (GEN SING)
+                                               (DAT SING)
+                                               (AKK SING))))
+     ((FPLUR2) (N)
+               (FLEXION (FEM (NOM PLUR)
+                             (GEN PLUR)
+                             (AKK PLUR))))
+     ((STN NSING1 NSING2 N1 N2 N3 N5 N7) (N)
+                                         (FLEXION
+                                           (NEUT (NOM SING)
+                                                 (DAT SING)
+                                                 (AKK SING))))
+     ((N4) (N)
+           (FLEXION
+             (NEUT (NOM SING)
+                   (DAT SING)
+                   (AKK SING)
+                   (NOM PLUR)
+                   (GEN PLUR)
+                   (AKK PLUR))))
+     ((N6) (N)
+           (FLEXION
+             (NEUT (NOM SING)
+                   (DAT SING)
+                   (AKK SING)
+                   (NOM PLUR)
+                   (GEN PLUR)
+                   (DAT PLUR)
+                   (AKK PLUR))))
+     ((NPLUR3) (N)
+               (FLEXION
+                 (NEUT (NOM PLUR)
+                       (GEN PLUR)
+                       (DAT PLUR)
+                       (AKK PLUR))))
+     ((PLURTANT1) (N)
+                  (FLEXION
+                    (NIL (NOM PLUR)
+                         (GEN PLUR)
+                         (DAT PLUR)
+                         (AKK PLUR))))
+     ((PLURTANT2) (N)
+                  (FLEXION (NIL (NOM PLUR)
+                                (GEN PLUR)
+                                (AKK PLUR))))
+     ((ADJNOM1) (N)
+                (FLEXION (DEKTYPI (MASK (NOM PLUR)
+                                        (AKK PLUR)))
+                         (DEKTYPII (MASK (NOM SING)))
+                         (DEKTYPIII (MASK (NOM PLUR)
+                                          (AKK PLUR)))))
+     ((ADJNOM2) (N)
+                (FLEXION
+                  (DEKTYPI (MASK (NOM PLUR) (AKK PLUR))
+                           (FEM (NOM SING)
+                                (AKK SING)
+                                (NOM PLUR)
+                                (AKK PLUR)))
+                  (DEKTYPII (MASK (NOM SING))
+                            (FEM (NOM SING) (AKK SING)))
+                  (DEKTYPIII (MASK (NOM PLUR) (AKK PLUR))
+                             (FEM (NOM SING)
+                                  (AKK SING)
+                                  (NOM PLUR)
+                                  (AKK PLUR)))))
+     ((STV4A STV4AA
+             STV4B
+             STV4BB
+             STV4C
+             STV4CC
+             STV5A
+             STV5AA
+             STV5B
+             STV5BB
+             STV5C
+             STV5CC)
+       (V)
+       (FLEXION (IND_PRAETERITUM (SG (1 3)))))
+     ((SWV1 SWV2
+            SWV3
+            SWV4
+            SWV5
+            SWZ1
+            SWZ2
+            SWZ3
+            SWZ4
+            SWZ5
+            STV1A
+            STV1B
+            STV1C
+            STV3AA
+            STV3D
+            STV7A
+            STV7B
+            STV7C)
+       (V)
+       (FLEXION (IMPERATIV SG)))
+     ((STV3C) (V)
+              (FLEXION (IND_PRAESENS (SG 3))))
+     ((NUM1 NUM3 NUM4) (ADJ) (KARDINALZAHL)))
+(E
+  ((ADJ1 ADJ2 ADJPOS ADJSYN ADJFLEK) (ADJ)
+                                     (GRAD POS)
+                                     (FLEXION
+                                       (DEKTYPI (MASK (NOM PLUR)
+                                                      (AKK PLUR))
+                                                (FEM (NOM SING)
+                                                     (AKK SING)
+                                                     (NOM PLUR)
+                                                     (AKK PLUR))
+                                                (NEUT (NOM PLUR)
+                                                      (AKK PLUR)))
+                                       (DEKTYPII (MASK (NOM SING))
+                                                 (FEM (AKK SING)
+                                                      (NOM SING))
+                                                 (NEUT (NOM SING)
+                                                       (AKK SING)))
+                                       (DEKTYPIII
+                                         (FEM (NOM SING)
+                                              (AKK SING)))))
+  ((M1 MSING1) (N)
+               (FLEXION (MASK (DAT SING))))
+  ((STN N2 NSING1) (N)
+                   (FLEXION (NEUT (DAT SING))))
+  ((M3 MPLUR2) (N)
+               (FLEXION (MASK (NOM PLUR)
+                              (GEN PLUR)
+                              (AKK PLUR))))
+  ((FPLUR1) (N)
+            (FLEXION (FEM (NOM PLUR)
+                          (GEN PLUR)
+                          (AKK PLUR))))
+  ((N3 NPLUR2) (N)
+               (FLEXION (NEUT (NOM PLUR)
+                              (GEN PLUR)
+                              (AKK PLUR))))
+  ((SWV1 SWV2
+         SWV3
+         SWV4_1SG
+         SWV5
+         SWZ1
+         SWZ2
+         SWZ3
+         SWZ4_1SG
+         SWZ5
+         STV1A
+         STV1B
+         STV1C
+         STV7A
+         STV7B
+         STV7C
+         STV7D)
+    (V)
+    (FLEXION (IND_PRAESENS (SG 1))
+             (KONJ_PRAESENS (SG (1 3)))
+             (IMPERATIV SG)))
+  ((STV4AA STV4BB
+           STV4CC
+           STV5AA
+           STV5BB
+           STV5CC
+           STVKONJ)
+    (V)
+    (FLEXION (KONJ_PRAETERITUM (SG (1 3)))))
+  ((STV2A STV2B) (V)
+                 (FLEXION (IND_PRAESENS (SG 1))
+                          (KONJ_PRAESENS (SG (1 3)))))
+  ((NUM2) (ADJ)
+          (ORDINALZAHL)
+          (= FLEXION E ADJ1))
+  ((NUM3) (ADJ)
+          (KARDINALZAHL)))
+(EM
+  ((ADJ1 ADJ2 ADJPOS ADJSYN ADJFLEK) (ADJ)
+                                     (GRAD POS)
+                                     (FLEXION
+                                       (DEKTYPI (MASK (DAT SING))
+                                                (NEUT (DAT SING)))))
+  ((NUM2) (ADJ)
+          (ORDINALZAHL)
+          (= FLEXION EM ADJ1)))
+(EN
+  ((ADJ1 ADJ2 ADJPOS ADJSYN ADJFLEK) (ADJ)
+                                     (GRAD POS)
+                                     (FLEXION
+                                       (DEKTYPI
+                                         (MASK (GEN SING)
+                                               (AKK SING)
+                                               (DAT PLUR))
+                                         (FEM (DAT PLUR))
+                                         (NEUT (GEN SING)
+                                               (DAT PLUR)))
+                                       (DEKTYPII
+                                         (MASK (GEN SING)
+                                               (DAT SING)
+                                               (AKK SING)
+                                               (NOM PLUR)
+                                               (GEN PLUR)
+                                               (DAT PLUR)
+                                               (AKK PLUR))
+                                         (FEM (GEN SING)
+                                              (DAT SING)
+                                              (NOM PLUR)
+                                              (GEN PLUR)
+                                              (DAT PLUR)
+                                              (AKK PLUR))
+                                         (NEUT (GEN SING)
+                                               (DAT SING)
+                                               (NOM PLUR)
+                                               (GEN PLUR)
+                                               (DAT PLUR)
+                                               (AKK PLUR)))
+                                       (DEKTYPIII
+                                         (MASK (GEN SING)
+                                               (DAT SING)
+                                               (AKK SING)
+                                               (NOM PLUR)
+                                               (GEN PLUR)
+                                               (DAT PLUR)
+                                               (AKK PLUR))
+                                         (FEM (GEN SING)
+                                              (DAT SING)
+                                              (NOM PLUR)
+                                              (GEN PLUR)
+                                              (DAT PLUR)
+                                              (AKK PLUR))
+                                         (NEUT (GEN SING)
+                                               (DAT SING)
+                                               (NOM PLUR)
+                                               (GEN PLUR)
+                                               (DAT PLUR)
+                                               (AKK PLUR)))))
+  ((SWM1) (N)
+          (FLEXION
+            (MASK (GEN SING)
+                  (DAT SING)
+                  (AKK SING)
+                  (NOM PLUR)
+                  (GEN PLUR)
+                  (DAT PLUR)
+                  (AKK PLUR))))
+  ((M1) (N)
+        (FLEXION (MASK (NOM PLUR)
+                       (GEN PLUR)
+                       (DAT PLUR)
+                       (AKK PLUR))))
+  ((M3 MPLUR2) (N)
+               (FLEXION (MASK (DAT PLUR))))
+  ((FEM1) (N)
+          (FLEXION (FEM (NOM PLUR)
+                        (GEN PLUR)
+                        (DAT PLUR)
+                        (AKK PLUR))))
+  ((FPLUR1) (N)
+            (FLEXION (FEM (DAT PLUR))))
+  ((N2) (N)
+        (FLEXION (NEUT (NOM PLUR)
+                       (GEN PLUR)
+                       (DAT PLUR)
+                       (AKK PLUR))))
+  ((N3 NPLUR2) (N)
+               (FLEXION (NEUT (DAT PLUR))))
+  ((STV4A STV4B STV4C STV5A STV5B STV5C) (V)
+                                         (FLEXION (IND_PRAETERITUM (PL (1 3)))))
+  ((STV4AA STV4BB STV4CC STV5AA STV5BB STV5CC) (V)
+                                               (FLEXION
+                                                 (IND_PRAETERITUM (PL (1 3)))
+                                                 (KONJ_PRAETERITUM
+                                                   (PL (1 3)))))
+  ((SWV1 SWV2
+         SWV3
+         SWZ1
+         SWZ2
+         SWZ3
+         STV1A
+         STV1B
+         STV1C
+         STV2A
+         STV2B
+         STV7A
+         STV7B
+         STV7C
+         STV7D)
+    (V)
+    (FLEXION (IND_PRAESENS (PL (1 3)))
+             (KONJ_PRAESENS (PL (1 3)))
+             (INFINITIV)))
+  ((SWV4_1SG SWV5 SWZ4_1SG SWZ5) (V)
+                                 (FLEXION (KONJ_PRAESENS (PL (1 3)))))
+  ((STVKONJ) (V)
+             (FLEXION (KONJ_PRAETERITUM (PL (1 3)))))
+  ((STV8) (V)
+          (FLEXION (PARTIZIP-PERFEKT)))
+  ((NUM3) (ADJ)
+          (KARDINALZAHL))
+  ((NUM2) (ADJ)
+          (ORDINALZAHL)
+          (= FLEXION EN ADJ1)))
+(END
+  ((SWV1 SWV2
+         SWV3
+         SWZ1
+         SWZ2
+         SWZ3
+         STV1A
+         STV1B
+         STV1C
+         STV2A
+         STV2B
+         STV7A
+         STV7B
+         STV7C
+         STV7D)
+    (UNFLADJ)
+    (PARTIZIP-PRAESENS)))
+(ENDE
+  ((SWV1 SWV2
+         SWV3
+         SWZ1
+         SWZ2
+         SWZ3
+         STV1A
+         STV1B
+         STV1C
+         STV2A
+         STV2B
+         STV7A
+         STV7B
+         STV7C
+         STV7D)
+    (ADJ)
+    (PART-ADJ-PRAESENS)
+    (= FLEXION E ADJ1)))
+(ENDEM
+  ((SWV1 SWV2
+         SWV3
+         SWZ1
+         SWZ2
+         SWZ3
+         STV1A
+         STV1B
+         STV1C
+         STV2A
+         STV2B
+         STV7A
+         STV7B
+         STV7C
+         STV7D)
+    (ADJ)
+    (PART-ADJ-PRAESENS)
+    (= FLEXION EM ADJ1)))
+(ENDEN
+  ((SWV1 SWV2
+         SWV3
+         SWZ1
+         SWZ2
+         SWZ3
+         STV1A
+         STV1B
+         STV1C
+         STV2A
+         STV2B
+         STV7A
+         STV7B
+         STV7C
+         STV7D)
+    (ADJ)
+    (PART-ADJ-PRAESENS)
+    (= FLEXION EN ADJ1)))
+(ENDER
+  ((SWV1 SWV2
+         SWV3
+         SWZ1
+         SWZ2
+         SWZ3
+         STV1A
+         STV1B
+         STV1C
+         STV2A
+         STV2B
+         STV7A
+         STV7B
+         STV7C
+         STV7D)
+    (ADJ)
+    (PART-ADJ-PRAESENS)
+    (= FLEXION ER ADJPOS)))
+(ENDES
+  ((SWV1 SWV2
+         SWV3
+         SWZ1
+         SWZ2
+         SWZ3
+         STV1A
+         STV1B
+         STV1C
+         STV2A
+         STV2B
+         STV7A
+         STV7B
+         STV7C
+         STV7D)
+    (ADJ)
+    (PART-ADJ-PRAESENS)
+    (= FLEXION ES ADJ1)))
+(ENE ((STV8) (ADJ)
+             (PART-ADJ-PERFEKT)
+             (= FLEXION E ADJ1)))
+(ENEM ((STV8) (ADJ)
+              (PART-ADJ-PERFEKT)
+              (= FLEXION EM ADJ1)))
+(ENEN ((STV8) (ADJ)
+              (PART-ADJ-PERFEKT)
+              (= FLEXION EN ADJ1)))
+(ENER ((STV8) (ADJ)
+              (PART-ADJ-PERFEKT)
+              (= FLEXION ER ADJPOS)))
+(ENES ((STV8) (ADJ)
+              (PART-ADJ-PERFEKT)
+              (= FLEXION ES ADJ1)))
+(ENS
+  ((SWV1 SWV2
+         SWV3
+         SWZ1
+         SWZ2
+         SWZ3
+         STV1A
+         STV1B
+         STV1C
+         STV2A
+         STV2B
+         STV7A
+         STV7B
+         STV7C
+         STV7D)
+    (N)
+    (FLEXION (NEUT (GEN SING))))
+  ((ENMSING4) (EN)
+	      (FLEXION
+		(MASK (GEN SING))))
+  ((ENFSING4) (EN)
+	      (FLEXION
+		(FEM (GEN SING)))))
+
+(ER
+  ((ADJ1 ADJ2 ADJSYN) (L (UNFLADJ) (GRAD KOMP))
+                      (L (ADJ)
+                         (GRAD POS)
+                         (FLEXION
+                           (DEKTYPI (MASK (NOM SING)
+                                          (GEN PLUR))
+                                    (FEM (GEN SING)
+                                         (DAT SING)
+                                         (GEN PLUR))
+                                    (NEUT (GEN PLUR)))
+                           (DEKTYPIII (MASK (NOM SING))))))
+  ((ADJPOS ADJFLEK) (ADJ)
+                    (GRAD POS)
+                    (FLEXION
+                      (DEKTYPI (MASK (NOM SING)
+                                     (GEN PLUR))
+                               (FEM (GEN SING)
+                                    (DAT SING)
+                                    (GEN PLUR))
+                               (NEUT (GEN PLUR)))
+                      (DEKTYPIII (MASK (NOM SING)))))
+  ((ADJSTEIG1 ADJSTEIG2) (UNFLADJ) (GRAD KOMP))
+  ((MPLUR1) (N)
+            (FLEXION (MASK (NOM PLUR)
+                           (GEN PLUR)
+                           (AKK PLUR))))
+  ((STN NPLUR1) (N)
+                (FLEXION (NEUT (NOM PLUR)
+                               (GEN PLUR)
+                               (AKK PLUR))))
+  ((NUM2) (ADJ)
+          (ORDINALZAHL)
+          (= FLEXION ER ADJPOS)))
+(ERE
+  ((ADJ1 ADJ2 ADJSTEIG1 ADJSTEIG2 ADJSYN) (ADJ)
+                                          (GRAD KOMP)
+                                          (= FLEXION E ADJ1)))
+(EREM
+  ((ADJ1 ADJ2 ADJSTEIG1 ADJSTEIG2 ADJSYN) (ADJ)
+                                          (GRAD KOMP)
+                                          (= FLEXION EM ADJ1)))
+(EREN
+  ((ADJ1 ADJ2 ADJSTEIG1 ADJSTEIG2 ADJSYN) (ADJ)
+                                          (GRAD KOMP)
+                                          (= FLEXION EN ADJ1)))
+(ERER
+  ((ADJ1 ADJ2 ADJSTEIG1 ADJSTEIG2 ADJSYN) (ADJ)
+                                          (GRAD KOMP)
+                                          (= FLEXION ER ADJPOS)))
+(ERES
+  ((ADJ1 ADJ2 ADJSTEIG1 ADJSTEIG2 ADJSYN) (ADJ)
+                                          (GRAD KOMP)
+                                          (= FLEXION ES ADJ1)))
+(ERN ((MPLUR1) (N)
+               (FLEXION (MASK (DAT PLUR))))
+     ((STN NPLUR1) (N)
+                   (FLEXION (NEUT (DAT PLUR)))))
+(ES
+  ((ADJ1 ADJ2 ADJPOS ADJSYN ADJFLEK) (ADJ)
+                                     (GRAD POS)
+                                     (FLEXION
+                                       (DEKTYPI (NEUT (NOM SING)
+                                                      (AKK SING)))
+                                       (DEKTYPIII
+                                         (NEUT (NOM SING)
+                                               (AKK SING)))))
+  ((M1 M3 MSING1) (N)
+                  (FLEXION (MASK (GEN SING))))
+  ((STN NSING1 N2 N3) (N)
+                      (FLEXION (NEUT (GEN SING))))
+  ((NUM2) (ADJ)
+          (ORDINALZAHL)
+          (= FLEXION ES ADJ1)))
+(EST
+  ((SWV2 SWZ2 STV1B) (V)
+                     (FLEXION (IND_PRAESENS (SG 2))
+                              (KONJ_PRAESENS (SG 2))))
+  ((SWV1 SWV3
+         SWV4_1SG
+         SWV5
+         SWZ1
+         SWZ3
+         SWZ4_1SG
+         SWZ5
+         STV1A
+         STV1B
+         STV1C
+         STV2A
+         STV2B
+         STV7A
+         STV7B
+         STV7C
+         STV7D)
+    (V)
+    (FLEXION (KONJ_PRAESENS (SG 2))))
+  ((STV4AA STV4CC STV5AA STV5CC STVKONJ) (V)
+                                         (FLEXION (KONJ_PRAETERITUM (SG 2))))
+  ((STV4BB STV5BB) (V)
+                   (FLEXION (IND_PRAETERITUM (SG 2))
+                            (KONJ_PRAETERITUM (SG 2))))
+  ((STV4B STV5B) (V)
+                 (FLEXION (IND_PRAETERITUM (SG 2)))))
+(ESTE ((ADJ2 ADJSTEIG2) (ADJ)
+                        (GRAD SUP)
+                        (= FLEXION E ADJ1)))
+(ESTEM ((ADJ2 ADJSTEIG2) (ADJ)
+                         (GRAD SUP)
+                         (= FLEXION EM ADJ1)))
+(ESTEN
+  ((ADJ2 ADJSTEIG2) (L (UNFLADJ) (GRAD SUP))
+                    (L (ADJ)
+                       (GRAD SUP)
+                       (= FLEXION EN ADJ1))))
+(ESTER ((ADJ2 ADJSTEIG2) (ADJ)
+                         (GRAD SUP)
+                         (= FLEXION ER ADJPOS)))
+(ESTES ((ADJ2 ADJSTEIG2) (ADJ)
+                         (GRAD SUP)
+                         (= FLEXION ES ADJ1)))
+(ET
+  ((SWV2 STV1B) (V)
+                (FLEXION (IND_PRAESENS (SG 3) (PL 2))
+                         (KONJ_PRAESENS (PL 2))
+                         (IMPERATIV PL)))
+  ((SWZ2) (V)
+          (FLEXION (IND_PRAESENS (SG 3) (PL 2))
+                   (KONJ_PRAESENS (PL 2))
+                   (IMPERATIV PL)
+                   (PARTIZIP-PERFEKT)))
+  ((SWV1 SWV3
+         SWV4_1SG
+         SWV5
+         SWZ1
+         SWZ3
+         SWZ4_1SG
+         SWZ5
+         STV1A
+         STV1C
+         STV2A
+         STV7A
+         STV7C
+         STV7D)
+    (V)
+    (FLEXION (KONJ_PRAESENS (PL 2))))
+  ((STV4AA STV4CC STV5AA STV5CC STVKONJ) (V)
+                                         (FLEXION (KONJ_PRAETERITUM (PL 2))))
+  ((STV2B STV7B) (V)
+                 (FLEXION (IND_PRAESENS (PL 2))
+                          (KONJ_PRAESENS (PL 2))
+                          (IMPERATIV PL)))
+  ((STV4B STV5B) (V)
+                 (FLEXION (IND_PRAETERITUM (PL 2))))
+  ((STV4BB STV5BB) (V)
+                   (FLEXION (IND_PRAETERITUM (PL 2))
+                            (KONJ_PRAETERITUM (PL 2)))))
+(ETE
+  ((SWV2) (V)
+          (FLEXION (IND_PRAETERITUM (SG (1 3)))
+                   (KONJ_PRAETERITUM (SG (1 3)))))
+  ((SWZ2)
+    (L (V)
+       (FLEXION (IND_PRAETERITUM (SG (1 3)))
+                (KONJ_PRAETERITUM (SG (1 3)))))
+    (L (ADJ)
+       (PART-ADJ-PERFEKT)
+       (= FLEXION E ADJ1))))
+(ETEM ((SWZ2) (ADJ)
+              (PART-ADJ-PERFEKT)
+              (= FLEXION EM ADJ1)))
+(ETEN
+  ((SWV2) (V)
+          (FLEXION (IND_PRAETERITUM (PL (1 3)))
+                   (KONJ_PRAETERITUM (PL (1 3)))))
+  ((SWZ2)
+    (L (V)
+       (FLEXION (IND_PRAETERITUM (PL (1 3)))
+                (KONJ_PRAETERITUM (PL (1 3)))))
+    (L (ADJ)
+       (PART-ADJ-PERFEKT)
+       (= FLEXION E ADJ1))))
+(ETER ((SWZ2) (ADJ)
+              (PART-ADJ-PERFEKT)
+              (= FLEXION ER ADJPOS)))
+(ETES ((SWZ2) (ADJ)
+              (PART-ADJ-PERFEKT)
+              (= FLEXION ES ADJ1)))
+(ETEST
+  ((SWV2 SWZ2) (V)
+               (FLEXION (IND_PRAETERITUM (SG 2))
+                        (KONJ_PRAETERITUM (SG 2)))))
+(ETET
+  ((SWV2 SWZ2) (V)
+               (FLEXION (IND_PRAETERITUM (PL 2))
+                        (KONJ_PRAETERITUM (PL 2)))))
+(GE-EN
+  ((STV4A STV4AA
+          STV4B
+          STV4BB
+          STV4C
+          STV4CC
+          STV6
+          STV7A
+          STV7B
+          STV7C
+          STV7D)
+    (V)
+    (FLEXION (PARTIZIP-PERFEKT))))
+(GE-ENE
+  ((STV4A STV4AA
+          STV4B
+          STV4BB
+          STV4C
+          STV4CC
+          STV6
+          STV7A
+          STV7B
+          STV7C
+          STV7D)
+    (ADJ)
+    (PART-ADJ-PERFEKT)
+    (= FLEXION E ADJ1)))
+(GE-ENEM
+  ((STV4A STV4AA
+          STV4B
+          STV4BB
+          STV4C
+          STV4CC
+          STV6
+          STV7A
+          STV7B
+          STV7C
+          STV7D)
+    (ADJ)
+    (PART-ADJ-PERFEKT)
+    (= FLEXION EM ADJ1)))
+(GE-ENEN
+  ((STV4A STV4AA
+          STV4B
+          STV4BB
+          STV4C
+          STV4CC
+          STV6
+          STV7A
+          STV7B
+          STV7C
+          STV7D)
+    (ADJ)
+    (PART-ADJ-PERFEKT)
+    (= FLEXION EN ADJ1)))
+(GE-ENER
+  ((STV4A STV4AA
+          STV4B
+          STV4BB
+          STV4C
+          STV4CC
+          STV6
+          STV7A
+          STV7B
+          STV7C
+          STV7D)
+    (ADJ)
+    (PART-ADJ-PERFEKT)
+    (= FLEXION ER ADJPOS)))
+(GE-ENES
+  ((STV4A STV4AA
+          STV4B
+          STV4BB
+          STV4C
+          STV4CC
+          STV6
+          STV7A
+          STV7B
+          STV7C
+          STV7D)
+    (ADJ)
+    (PART-ADJ-PERFEKT)
+    (= FLEXION ES ADJ1)))
+(GE-ET ((SWV2) (V)
+               (FLEXION (PARTIZIP-PERFEKT))))
+(GE-ETE ((SWV2) (ADJ)
+                (PART-ADJ-PERFEKT)
+                (= FLEXION E ADJ1)))
+(GE-ETEM ((SWV2) (ADJ)
+                 (PART-ADJ-PERFEKT)
+                 (= FLEXION EM ADJ1)))
+(GE-ETEN ((SWV2) (ADJ)
+                 (PART-ADJ-PERFEKT)
+                 (= FLEXION EN ADJ1)))
+(GE-ETER ((SWV2) (ADJ)
+                 (PART-ADJ-PERFEKT)
+                 (= FLEXION ER ADJPOS)))
+(GE-ETES ((SWV2) (ADJ)
+                 (PART-ADJ-PERFEKT)
+                 (= FLEXION ES ADJ1)))
+(GE-T ((SWV1 SWV3 SWV4 SWV5 STV9) (V)
+                                  (FLEXION (PARTIZIP-PERFEKT))))
+(GE-TE ((SWV1 SWV3 SWV4 SWV5 STV9) (ADJ)
+                                   (PART-ADJ-PERFEKT)
+                                   (= FLEXION E ADJ1)))
+(GE-TEM
+  ((SWV1 SWV3 SWV4 SWV5 STV9) (ADJ)
+                              (PART-ADJ-PERFEKT)
+                              (= FLEXION EM ADJ1)))
+(GE-TEN
+  ((SWV1 SWV3 SWV4 SWV5 STV9) (ADJ)
+                              (PART-ADJ-PERFEKT)
+                              (= FLEXION EN ADJ1)))
+(GE-TER
+  ((SWV1 SWV3 SWV4 SWV5 STV9) (ADJ)
+                              (PART-ADJ-PERFEKT)
+                              (= FLEXION ER ADJPOS)))
+(GE-TES
+  ((SWV1 SWV3 SWV4 SWV5 STV9) (ADJ)
+                              (PART-ADJ-PERFEKT)
+                              (= FLEXION ES ADJ1)))
+(M ((ADJNOM1 ADJNOM2) (N)
+                      (FLEXION (DEKTYPI (MASK (DAT SING))))))
+(N ((STM MPLUR3) (N)
+                 (FLEXION (MASK (DAT PLUR))))
+   ((SWM2) (N)
+           (FLEXION
+             (MASK (GEN SING)
+                   (DAT SING)
+                   (AKK SING)
+                   (NOM PLUR)
+                   (GEN PLUR)
+                   (DAT PLUR)
+                   (AKK PLUR))))
+   ((M5) (N)
+         (FLEXION
+           (MASK (DAT SING)
+                 (AKK SING)
+                 (NOM PLUR)
+                 (GEN PLUR)
+                 (DAT PLUR)
+                 (AKK PLUR))))
+   ((M7) (N)
+         (FLEXION (MASK (NOM PLUR)
+                        (GEN PLUR)
+                        (DAT PLUR)
+                        (AKK PLUR))))
+   ((FEM2) (N)
+           (FLEXION (FEM (NOM PLUR)
+                         (GEN PLUR)
+                         (DAT PLUR)
+                         (AKK PLUR))))
+   ((FPLUR2) (N)
+             (FLEXION (FEM (DAT PLUR))))
+   ((N1) (N)
+         (FLEXION (NEUT (NOM PLUR)
+                        (GEN PLUR)
+                        (DAT PLUR)
+                        (AKK PLUR))))
+   ((N4) (N)
+         (FLEXION (NEUT (DAT PLUR))))
+   ((PLURTANT2) (N)
+                (FLEXION (NIL (DAT PLUR))))
+   ((ADJNOM1) (N)
+              (FLEXION (DEKTYPI (MASK (GEN SING)
+                                      (AKK SING)
+                                      (DAT PLUR)))
+                       (DEKTYPII
+                         (MASK (GEN SING)
+                               (DAT SING)
+                               (AKK SING)
+                               (NOM PLUR)
+                               (GEN PLUR)
+                               (DAT PLUR)
+                               (AKK PLUR)))
+                       (DEKTYPIII
+                         (MASK (GEN SING)
+                               (DAT SING)
+                               (AKK SING)
+                               (DAT PLUR)))))
+   ((ADJNOM2) (N)
+              (FLEXION
+                (DEKTYPI (MASK (GEN SING)
+                               (AKK SING)
+                               (DAT PLUR))
+                         (FEM (DAT PLUR)))
+                (DEKTYPII
+                  (MASK (GEN SING)
+                        (DAT SING)
+                        (AKK SING)
+                        (NOM PLUR)
+                        (GEN PLUR)
+                        (DAT PLUR)
+                        (AKK PLUR))
+                  (FEM (GEN SING)
+                       (DAT SING)
+                       (NOM PLUR)
+                       (GEN PLUR)
+                       (DAT PLUR)
+                       (AKK PLUR)))
+                (DEKTYPIII
+                  (MASK (GEN SING)
+                        (DAT SING)
+                        (AKK SING)
+                        (DAT PLUR))
+                  (FEM (GEN SING)
+                       (DAT SING)
+                       (NOM PLUR)
+                       (GEN PLUR)
+                       (DAT PLUR)
+                       (AKK PLUR)))))
+   ((ORTNUMSUF) (N)
+                (FLEXION (MASK (DAT PLUR))))
+   ((SWV4 SWV5 SWZ4 SWZ5) (V)
+                          (FLEXION (IND_PRAESENS (PL (1 3)))
+                                   (INFINITIV))))
+(ND ((SWV4 SWV5 SWZ4 SWZ5) (UNFLADJ)
+                           (PARTIZIP-PRAESENS)))
+(NDE ((SWV4 SWV5 SWZ4 SWZ5) (ADJ)
+                            (PART-ADJ-PRAESENS)
+                            (= FLEXION E ADJ1)))
+(NDEM ((SWV4 SWV5 SWZ4 SWZ5) (ADJ)
+                             (PART-ADJ-PRAESENS)
+                             (= FLEXION EM ADJ1)))
+(NDEN ((SWV4 SWV5 SWZ4 SWZ5) (ADJ)
+                             (PART-ADJ-PRAESENS)
+                             (= FLEXION EN ADJ1)))
+(NDER ((SWV4 SWV5 SWZ4 SWZ5) (ADJ)
+                             (PART-ADJ-PRAESENS)
+                             (= FLEXION ER ADJPOS)))
+(NDES ((SWV4 SWV5 SWZ4 SWZ5) (ADJ)
+                             (PART-ADJ-PRAESENS)
+                             (= FLEXION ES ADJ1)))
+(NEN
+  ((FEM4) (N)
+          (FLEXION (FEM (NOM PLUR)
+                        (GEN PLUR)
+                        (DAT PLUR)
+                        (AKK PLUR)))))
+(NS ((M5) (N)
+          (FLEXION (MASK (GEN SING))))
+    ((SWV4 SWV5 SWZ4 SWZ5) (N)
+                           (FLEXION (NEUT (GEN SING)))))
+(R
+  ((ADJNOM1) (N)
+             (FLEXION (DEKTYPI (MASK (NOM SING)
+                                     (GEN PLUR)))
+                      (DEKTYPIII (MASK (NOM SING)
+                                       (GEN PLUR)))))
+  ((ADJNOM2) (N)
+             (FLEXION
+               (DEKTYPI (MASK (NOM SING) (GEN PLUR))
+                        (FEM (GEN SING)
+                             (DAT SING)
+                             (GEN PLUR)))
+               (DEKTYPIII (MASK (NOM SING) (GEN PLUR))))))
+(S ((STM M1 M2 M3 MSING1 MSING2 M7) (N)
+                                    (FLEXION (MASK (GEN SING))))
+   ((ORTNUMSUF) (N)
+                (FLEXION (MASK (GEN SING))))
+   ((M4) (N)
+         (FLEXION
+           (MASK (GEN SING)
+                 (NOM PLUR)
+                 (GEN PLUR)
+                 (DAT PLUR)
+                 (AKK PLUR))))
+   ((N7) (N)
+         (FLEXION
+           (NEUT (GEN SING)
+                 (NOM PLUR)
+                 (GEN PLUR)
+                 (DAT PLUR)
+                 (AKK PLUR))))
+   ((FEM5) (N)
+           (FLEXION (FEM (NOM PLUR)
+                         (GEN PLUR)
+                         (DAT PLUR)
+                         (AKK PLUR))))
+   ((STN N1 N2 N3 N4 N6 NSING1 NSING2) (N)
+                                       (FLEXION (NEUT (GEN SING))))
+   ((ENMSING2) (EN)
+	       (FLEXION (MASK (GEN SING))))
+   ((ENFSING2) (EN)
+	       (FLEXION (FEM (GEN SING)))))
+
+
+(SE ((FEM3) (N)
+            (FLEXION (FEM (NOM PLUR)
+                          (GEN PLUR)
+                          (AKK PLUR))))
+    ((N5) (N)
+          (FLEXION (NEUT (NOM PLUR)
+                         (GEN PLUR)
+                         (AKK PLUR))))
+    ((M6) (N)
+          (FLEXION (MASK (NOM PLUR)
+                         (GEN PLUR)
+                         (AKK PLUR)))))
+(SEN ((FEM3) (N)
+             (FLEXION (FEM (DAT PLUR))))
+     ((N5) (N)
+           (FLEXION (NEUT (DAT PLUR))))
+     ((M6) (N)
+           (FLEXION (MASK (DAT PLUR)))))
+(SES ((N5) (N)
+           (FLEXION (NEUT (GEN SING))))
+     ((M6) (N)
+           (FLEXION (MASK (GEN SING)))))
+(ST ((STV4A STV4AA STV5A STV5AA) (V)
+                                 (FLEXION (IND_PRAETERITUM (SG 2))))
+    ((SWV1 SWV4
+           SWV5
+           SWZ1
+           SWZ4
+           SWZ5
+           STV1A
+           STV3AA
+           STV3AB
+           STV3C
+           STV7C)
+      (V)
+      (FLEXION (IND_PRAESENS (SG 2)))))
+(STE ((ADJ1 ADJSTEIG1 ADJSUP) (ADJ)
+                              (GRAD SUP)
+                              (= FLEXION E ADJ1))
+     ((NUM3) (ADJ)
+             (ORDINALZAHL)
+             (= FLEXION E ADJ1)))
+(STEM ((ADJ1 ADJSTEIG1 ADJSUP) (ADJ)
+                               (GRAD SUP)
+                               (= FLEXION EM ADJ1))
+      ((NUM3) (ADJ)
+              (ORDINALZAHL)
+              (= FLEXION EM ADJ1)))
+(STEN
+  ((ADJ1 ADJSTEIG1 ADJSUP) (L (UNFLADJ) (GRAD SUP))
+                           (L (ADJ)
+                              (GRAD SUP)
+                              (= FLEXION EN ADJ1)))
+  ((NUM3) (ADJ)
+          (ORDINALZAHL)
+          (= FLEXION EN ADJ1)))
+(STER ((ADJ1 ADJSTEIG1 ADJSUP) (ADJ)
+                               (GRAD SUP)
+                               (= FLEXION ER ADJPOS))
+      ((NUM3) (ADJ)
+              (ORDINALZAHL)
+              (= FLEXION ER ADJPOS)))
+(STES ((ADJ1 ADJSTEIG1 ADJSUP) (ADJ)
+                               (GRAD SUP)
+                               (= FLEXION ES ADJ1))
+      ((NUM3) (ADJ)
+              (ORDINALZAHL)
+              (= FLEXION ES ADJ1)))
+(T ((STV4A STV4AA STV5A STV5AA) (V)
+                                (FLEXION (IND_PRAETERITUM (PL 2))))
+   ((STV4C STV4CC STV5C STV5CC) (V)
+                                (FLEXION (IND_PRAETERITUM (SG 2)
+                                                          (PL 2))))
+   ((SWV1 SWV4 SWV5 STV1A STV7C) (V)
+                                 (FLEXION (IND_PRAESENS (SG 3)
+                                                        (PL 2))
+                                          (IMPERATIV PL)))
+   ((STV2A) (V)
+            (FLEXION (IND_PRAESENS (PL 2))
+                     (IMPERATIV PL)))
+   ((SWZ1 SWZ4 SWZ5) (V)
+                     (FLEXION (IND_PRAESENS (SG 3) (PL 2))
+                              (IMPERATIV PL)
+                              (PARTIZIP-PERFEKT)))
+   ((SWV3 STV1A STV1C STV7D) (V)
+                             (FLEXION (IND_PRAESENS (SG (2 3))
+                                                    (PL 2))
+                                      (IMPERATIV PL)))
+   ((SWZ3) (V)
+           (FLEXION (IND_PRAESENS (SG (2 3)) (PL 2))
+                    (IMPERATIV PL)
+                    (PARTIZIP-PERFEKT)))
+   ((STV3AA STV3AB) (V)
+                    (FLEXION (IND_PRAESENS (SG 3))))
+   ((STV3B STV3D) (V)
+                  (FLEXION (IND_PRAESENS (SG (2 3)))))
+   ((STV7A) (V)
+            (FLEXION (IND_PRAESENS (PL 2))
+                     (IMPERATIV PL))))
+(TE ((NUM1) (ADJ)
+            (ORDINALZAHL)
+            (= FLEXION E ADJ1))
+    ((SWV1 SWV3 SWV4 SWV5 STV9) (V)
+                                (FLEXION (IND_PRAETERITUM (SG (1 3)))
+                                         (KONJ_PRAETERITUM (SG (1 3)))))
+    ((SWZ1 SWZ3 SWZ4 SWZ5)
+      (L (V)
+         (FLEXION (IND_PRAETERITUM (SG (1 3)))
+                  (KONJ_PRAETERITUM (SG (1 3)))))
+      (L (ADJ)
+         (PART-ADJ-PERFEKT)
+         (= FLEXION E ADJ1))))
+(TEM ((SWZ1 SWZ3 SWZ4 SWZ5) (ADJ)
+                            (PART-ADJ-PERFEKT)
+                            (= FLEXION EM ADJ1))
+     ((NUM1) (ADJ)
+             (ORDINALZAHL)
+             (= FLEXION EM ADJ1)))
+(TEN ((NUM1) (ADJ)
+             (ORDINALZAHL)
+             (= FLEXION EN ADJ1))
+     ((SWV1 SWV3 SWV4 SWV5 STV9) (V)
+                                 (FLEXION (IND_PRAETERITUM (PL (1 3)))
+                                          (KONJ_PRAETERITUM (PL (1 3)))))
+     ((SWZ1 SWZ3 SWZ4 SWZ5)
+       (L (V)
+          (FLEXION (IND_PRAETERITUM (SG (1 3)))
+                   (KONJ_PRAETERITUM (PL (1 3)))))
+       (L (ADJ)
+          (PART-ADJ-PERFEKT)
+          (= FLEXION EN ADJ1))))
+(TER ((SWZ1 SWZ3 SWZ4 SWZ5) (ADJ)
+                            (PART-ADJ-PERFEKT)
+                            (= FLEXION ER ADJPOS))
+     ((NUM1) (ADJ)
+             (ORDINALZAHL)
+             (= FLEXION ER ADJPOS)))
+(TES ((SWZ1 SWZ3 SWZ4 SWZ5) (ADJ)
+                            (PART-ADJ-PERFEKT)
+                            (= FLEXION ES ADJ1))
+     ((NUM1) (ADJ)
+             (ORDINALZAHL)
+             (= FLEXION ES ADJ1)))
+(TEST
+  ((SWV1 SWV3 SWV4 SWV5 SWZ1 SWZ3 SWZ4 SWZ5 STV9) (V)
+                                                  (FLEXION
+                                                    (IND_PRAETERITUM (SG 2))
+                                                    (KONJ_PRAETERITUM (SG 2)))))
+(TET
+  ((SWV1 SWV3 SWV4 SWV5 SWZ1 SWZ3 SWZ4 SWZ5 STV9) (V)
+                                                  (FLEXION
+                                                    (IND_PRAETERITUM (PL 2))
+                                                    (KONJ_PRAETERITUM (PL 2)))))

@@ -1,0 +1,4 @@
+#!/bin/bash
+printf 'shutdown' | nc -w 10 localhost 20100
+sleep 2
+/home/scholz/aapi-core/aapi

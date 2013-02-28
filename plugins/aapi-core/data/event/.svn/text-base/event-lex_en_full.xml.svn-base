@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mapping>
+
+<event name="E5.Event">
+	<!--  <synset pos="n" wordsense="1">event</synset>-->
+</event>
+
+<event name="E6.Destruction">
+	<synset pos="n" wordsense="1">destruction</synset>
+	<synset pos="v" wordsense="1">destroy</synset>
+	<synset pos="a" wordsense="1">destroyed</synset>
+</event>
+
+<event name="E7.Activity">
+	<synset pos="n" wordsense="1">activity</synset>
+</event>
+
+<event name="E67.Birth">
+	<synset pos="n" wordsense="2">birth</synset>
+	<synset pos="a" wordsense="1">born</synset>
+	<synset pos="v" wordsense="2">bear</synset>
+	<synset pos="v" wordsense="13">bear</synset>
+</event>
+
+<event name="E69.Death">
+	<synset pos="n" wordsense="1">death</synset>
+	<synset pos="n" wordsense="3">death</synset>
+	<synset pos="n" wordsense="8">death</synset>
+	<synset pos="v" wordsense="1">die</synset>
+</event>
+
+<event name="E8.Acquisition">
+	<synset pos="n" wordsense="2">acquisition</synset>
+	<synset pos="v" wordsense="1">acquire</synset>
+	<synset pos="v" wordsense="1">gain</synset>
+	<synset pos="v" wordsense="1">get</synset>	
+	<synset pos="n" wordsense="1">deaccession</synset>
+	<synset pos="n" wordsense="1">loss</synset>
+	<synset pos="v" wordsense="1">sell</synset>
+	<synset pos="v" wordsense="2">sell</synset>
+	<synset pos="v" wordsense="1">lose</synset>	
+	<synset pos="a" wordsense="1">lost</synset>		
+</event>
+
+<event name="E9.Move">
+	<synset pos="n" wordsense="4">move</synset>
+	<synset pos="v" wordsense="1">move</synset>
+	<synset pos="n" wordsense="6">motion</synset>
+	<synset pos="n" wordsense="2">movement</synset>
+	<synset pos="n" wordsense="2">relocation</synset>
+</event>
+
+<event name="E10.Transfer_of_Custody">
+	<phrase><word pos="n">beginning</word> <word>of</word><word pos="n">custody</word></phrase>
+	<phrase><word pos="n">end</word> <word>of</word><word pos="n">custody</word></phrase>
+	<phrase><word pos="n">transfer</word> <word>of</word><word pos="n">custody</word></phrase>
+	<phrase><word pos="n">receipt</word> <word>of</word><word pos="n">custody</word></phrase>
+	<phrase><word pos="n">loss</word> <word>of</word><word pos="n">custody</word></phrase>	
+</event>
+
+<event name="E11.Modification">
+	<synset pos="n" wordsense="1">change</synset>
+	<synset pos="n" wordsense="1">alteration</synset>
+	<synset pos="n" wordsense="1">modification</synset>
+	<synset pos="v" wordsense="1">change</synset>
+	<synset pos="v" wordsense="1">alter</synset>
+	<synset pos="v" wordsense="3">modify</synset>
+</event>
+
+<event name="E12.Production">
+	<synset pos="n" wordsense="1">production</synset>
+	<synset pos="n" wordsense="1">making</synset>
+	<synset pos="n" wordsense="1">creation</synset>
+	<synset pos="v" wordsense="1">produce</synset>
+	<synset pos="v" wordsense="6">make</synset>
+	<synset pos="v" wordsense="6">create</synset>
+</event>
+
+<event name="E13.Attribute_Assignment">
+	<phrase><word pos="n" reftoken="true">assignment</word> <word>of</word> <word pos="n">attribute</word></phrase>
+	<synset pos="v" wordsense="8">assign</synset>
+	<synset pos="v" wordsense="2">attribute</synset>	
+</event>
+
+<event name="E14.Condition_Assessment">
+	<synset pos="n" wordsense="1">assessment</synset>	
+	<synset pos="v" wordsense="4">value</synset>
+</event>
+
+</mapping>
