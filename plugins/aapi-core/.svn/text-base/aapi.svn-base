@@ -1,2 +1,0 @@
-cd /home/scholz/aapi-core
-java -cp /home/scholz/aapi-core/:/home/scholz/aapi-core/bin:/home/scholz/aapi-core/lib/stemmer.jar:/home/scholz/aapi-core/lib/shiftone-cache.jar:/home/scholz/aapi-core/lib/util.jar:/home/scholz/aapi-core/lib/jan.jar:/home/scholz/aapi-core/lib/json.jar:/home/scholz/aapi-core/lib/er-tagger.jar:/home/scholz/aapi-core/lib/antlr-2.7.5.jar:/home/scholz/aapi-core/lib/mysql-connector-java-5.0.8-bin.jar eu.wiss_ki.AAPI -p 20736 -l /tmp/aapi-20736.log -l ALL=- 2>/tmp/aapi-20736-stderr.log &

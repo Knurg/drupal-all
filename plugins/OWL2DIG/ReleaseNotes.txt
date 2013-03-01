@@ -1,7 +1,0 @@
-Release Notes
-=============
-
-OWL2DIG 1.0 (May 2004)
-
-This is OWL2DIG 1.0.  This is the first full release of OWL2DIG 1.0
-
