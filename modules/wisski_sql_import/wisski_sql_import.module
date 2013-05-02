@@ -1,0 +1,594 @@
+<?php
+
+function wisski_sql_import_menu() {
+
+  $items = array();
+  
+  //  The settings for the wisski module in the admin page - might be useful later
+  $items['admin/settings/wisski/odbcimport'] = array(
+    'title' => 'ODBCImport',
+    'description' => 'Here you can import data from MySQL by giving a template-file',
+    //'page callback' => 'wisski_sql_import_overview',
+       
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('wisski_sql_import_overview'),
+    //'callback' => 'drupal_get_form',
+    //'callback arguments' => 'wisski_admin',
+    'access arguments' => array('wisski administrate page'),
+    //'type' => MENU_NORMAL_ITEM, 
+    'type'     => MENU_LOCAL_TASK,
+  );
+
+  $items['import/start'] = array(
+    'title' => 'start',
+    'page callback' => 'wisski_sql_import_start',
+//    'page arguments' => array(2),
+    'access arguments' => array('wisski administrate page'),
+    'type' => MENU_CALLBACK,
+  );
+  
+  $items['import/progress'] = array(
+    'title' => 'progress',
+    'page callback' => 'wisski_sql_import_progress',
+    'access arguments' => array('wisski administrate page'),
+    'type' => MENU_CALLBACK,
+  );
+
+  return $items;
+  
+}
+/*
+function wisski_sql_import_start() {
+  //return drupal_json(array('status' => TRUE, 'data' => "Hello Drupal World"));;
+  //drupal_json(array('status' => TRUE, 'data' => NULL));
+  
+  $form_state = array('submitted' => FALSE);
+  $form_build_id = $_POST['form_build_id'];
+  
+  $form = form_get_cache($form_build_id, $form_state);  
+  drupal_set_message(serialize($_POST));
+  drupal_set_message(serialize($form));
+  return;
+
+  $url = $form_state['values']['url'];
+  $file = (isset($_FILES['files']['tmp_name']['upload'])) ? $_FILES['files']['tmp_name']['upload'] : NULL;
+  if ($file == NULL) $file = $url;
+
+//  drupal_set_message(serialize($file));
+
+  $arr = xml2array($file);
+
+  drupal_set_message(serialize($arr));
+  
+  $dbserver = $arr['server'][0]['url'];
+  $dbuser = $arr['server'][0]['user'];
+  $dbpass = $arr['server'][0]['password'];
+  $dbport = isset($arr['server'][0]['port']) ? $arr['server'][0]['port'] : '3306';
+
+  $db = $arr['server'][0]['database'];
+
+  $connection = mysql_connect($dbserver . ':' . $dbport, $dbuser, $dbpass);
+  
+  if(!$connection) {
+    drupal_set_message("Connection could not be established!",'error');
+    return;
+  } else {
+    drupal_set_message("Connection established!");
+  }
+  
+  if(!mysql_select_db($db, $connection)) {
+    drupal_set_message("Database '$db' could not be found!", 'error');
+    return;
+  } else {
+    drupal_set_message("DB '$db' selected!");
+  }
+  
+//  drupal_set_message(serialize($arr['server']['table']));
+//  if(isset($arr['server']['table']['name']))
+//    wisski_sql_import_storeTable($arr['server']['table']);
+//  else 
+   foreach($arr['server'][0]['table'] as $tab) {
+     wisski_sql_import_storeTable($tab);
+   }
+}
+*/
+function wisski_sql_import_progress() {
+  $progress = variable_get("wisski_sql_import_progress", 0);//(int)(($num_imported * 100) / $num_records);
+  drupal_json(array('percentage' => $progress));
+}
+
+function wisski_sql_import_overview($form_state = NULL) {
+  //drupal_set_message(serialize($list));
+  $items = array(
+    '#attributes' => array('enctype' => "multipart/form-data"),
+  );
+        
+
+  $items['source'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Specify transformation file'),
+    '#required' => TRUE,
+    '#weight' => 2,
+    'url' => array(
+      '#type' => 'textfield',
+      '#title' => t('Url'),
+  //    '#required' => TRUE,
+      '#default_value' => '',
+      '#disabled' => FALSE,
+    ),
+    'upload' => array(
+      '#type' => 'file',
+      '#title' => t('File upload'),
+    ),
+  );  
+  
+  
+  $items['submit'] = array(
+    '#type' => 'submit',
+    '#value' => t('Save'),
+    '#weight' => 100,
+/*
+    '#ahah' => array(
+        'path' => 'datalink/start',
+        'wrapper' => "wisskidatalink",
+        'effect' => 'fade',
+        'method' => 'prepend',
+        'progress' => array(
+            'type' => 'bar',
+            'message' => t('Importing triples'),
+            'url' => $GLOBALS['base_url']. '/datalink/progress',
+        ),
+    ),*/
+  );
+  
+  
+  return $items;
+}
+/*
+function wisski_sql_import_form_alter_individual_validate($form, $form_state) {
+  drupal_set_message(serialize($form_state));
+}
+*/
+function wisski_sql_import_storeTable($table, &$alreadySeen) {
+
+  $rowiter = 0;
+  $tablename = $table['name'];
+  $delimiter = $table['delimiter'];
+  $trim = $table['trim'];  
+  //drupal_set_message("delim is: " );
+  //drupal_set_message($delimiter);
+  //return;
+  
+//  $maptoconcept = $table['concept'];
+  $groupid = $table['template_groupid'];
+  $id = $table['id'];
+  $append = $table['append'];
+  $select = $table['select'];
+  if(empty($append))
+      $append = "";
+      
+  $sql = "SELECT $select FROM `$tablename` $append";
+//    drupal_set_message($sql);  
+  $qry = mysql_query($sql);
+  
+  if(!$qry) {
+    drupal_set_message("Anfrage '$sql' gescheitert!",'error');
+    return;
+  }
+  
+  $numrows = mysql_num_rows($qry);
+  
+  $rows = array();
+  
+//  $alreadSeen = array();
+
+  $nodebodies = array();
+  
+  while($row = mysql_fetch_array($qry)) {
+//      drupal_set_message(serialize($row));
+    foreach($table['row'] as $XMLrow) {
+
+      $values = wisski_sql_import_storeRow($row, $XMLrow, $maptoconcept, $groupid, wisski_store_makePathTitle(array("s" => ($tablename . "_" . $maptoconcept . "_" . $row[$id]))), $alreadySeen, array(), $nodebodies, $delimiter, $trim);
+//      drupal_set_message(serialize($values));
+//      return;
+
+/*    
+        foreach($triples as $triple) {
+
+//          file_put_contents('/tmp/linkmodule2.txt', serialize($node));          
+          if(isset($node) && !empty($node)) {
+            if(!empty($nodebodies[$triple['s']])) {
+//                file_put_contents('/tmp/linkmodule3.txt', "found!!!");
+                $node->body = $nodebodies[$triple['s']];
+                node_save($node);
+            }
+          }
+        }
+*/      
+    // wisski_pathbuilder_build_group($form_state, $parentID, $treetype = 1)
+    
+//    dpm($values['values']);
+//    dpm($groupid);
+//    include_once('sites/all/modules/wisski_pathbuilder/wisski_pathbuilder.inc');
+   module_load_include('inc', 'wisski_pathbuilder', 'wisski_pathbuilder');
+   module_load_include('module', 'wisski_pathbuilder', 'wisski_pathbuilder');
+   module_load_include('inc', 'node', 'node.pages');
+      
+//    drupal_set_message("debug:");
+//    drupal_set_message(serialize($values));
+//    drupal_set_message($groupid);
+ 
+     $values['values']['group'] = $groupid;
+     $values['submitted'] = true;
+     $values['clicked_button'] = array( '#parents' => array() );
+     $values['values']['op'] = t('Save');
+     $node = array('type' => 'individual');
+     
+ 
+//     drupal_set_message("in: " . serialize($values));
+ 
+      drupal_execute('individual_node_form', $values, $node);   
+    $errors = drupal_execute('wisski_pathbuilder_build_group', $values, $groupid, 2);
+//    drupal_set_message("mv: " . serialize($values));
+//    drupal_set_message("errors: " . serialize($errors));
+//    return;
+    
+    
+    $triples = array();
+    //$triples[] = $values['triples'][0];
+    $samepart['x0'] = $values['triples'][0]['s'];
+    
+    if(isset($values['bodies'])) {
+      foreach($values['bodies'] as $key => $valuestr) {
+        $triples = _wisski_pathbuilder_generate_triples_of_path(array(), $valuestr, $key, $values['triples'][0]['s'], $samepart);
+   
+//    dpm($addtriples);
+        
+        foreach($triples as $key => $triple) {
+          $node = wisski_store_addNodeForTriple($triple);
+          if($key == count($triples)-2)
+            if(isset($node) && !empty($node)) {
+              if(!empty($valuestr)) {
+                $node->body = $valuestr;
+                node_save($node);
+                unset($triples[count($triples)-1]);
+              }
+            }
+          }
+      }
+    //  $triples = array_merge($triples, $addTrip);
+          
+      wisski_store_getObj()->wisski_ARCAdapter_getStore()->insert($triples, wisski_store_getObj()->wisski_ARCAdapter_graphName(), FALSE);
+    }
+//    $node = 
+    
+//    dpm($values);
+    
+//    break;
+//        wisski_store_getObj()->wisski_ARCAdapter_getStore()->insert($triples, wisski_store_getObj()->wisski_ARCAdapter_graphName(), FALSE);
+   //   }
+     // }
+    }
+//    break;
+    $rowiter++;
+    variable_set("wisski_sql_import_progress", ($rowiter/$numrows) * 100);
+  }
+}
+
+function wisski_sql_import_generateValuesForGroup($groupid, $row_values, $delimiter, $trim) {
+  //drupal_set_message(serialize($row_values));
+  //drupal_set_message(serialize($groupid));
+  $result = db_query("SELECT * FROM {wisski_template} WHERE `id` = $groupid");
+  
+  $my_group = db_fetch_array($result);
+  
+  $values = array();
+  
+  $workvalues = &$values;
+  
+  if($my_group['fieldtype'] != "ontogroup")
+    $workvalues = &$workvalues[$my_group['id']][$my_group['id']];
+  else
+    $workvalues = &$workvalues[$my_group['id']][$my_group['id']][$my_group['id'] . '_0'];
+    
+  $result = db_query("SELECT * FROM {wisski_template} WHERE `group_id` = $groupid");
+  
+  // cycle through all paths in the group
+  while($group_or_field = db_fetch_array($result)) {
+    //drupal_set_message("group or field is: " . serialize($group_or_field));
+    // is it a group?
+    if($group_or_field['is_group'] == 1) {
+      $got = wisski_sql_import_generateValuesForGroup($group_or_field['id'], $row_values, $delimiter, $trim);
+      $workvalues[$group_or_field['id']] = $got[$group_or_field['id']];
+    } else { // it is a field
+      if($group_or_field['fieldtype'] == 'ontotext' || $group_or_field['fieldtype'] == 'images' || $group_or_field['fieldtype'] == 'coordinates'  ) {
+        $multihits = explode("&", $row_values[$group_or_field['id']]);
+        
+        if(count($multihits) > 0) 
+          foreach($multihits as $key => $multihit) {
+            if($trim)
+              $workvalues[$group_or_field['id']][$group_or_field['id']][$group_or_field['id'] . '_' . $key] = trim($multihit); 
+            else
+              $workvalues[$group_or_field['id']][$group_or_field['id']][$group_or_field['id'] . '_' . $key] = $multihit;
+          }
+        else
+          if($trim)
+            $workvalues[$group_or_field['id']][$group_or_field['id']][$group_or_field['id'] . '_0'] = trim($row_values[$group_or_field['id']]);
+          else
+            $workvalues[$group_or_field['id']][$group_or_field['id']][$group_or_field['id'] . '_0'] = $row_values[$group_or_field['id']];
+      } else {
+        if($trim)
+          $workvalues[$group_or_field['id']] = trim($row_values[$group_or_field['id']]);
+        else
+          $workvalues[$group_or_field['id']] = $row_values[$group_or_field['id']];
+      }
+    
+    }
+  
+  }
+  return $values;
+}
+
+function wisski_sql_import_storeRow($row, $XMLrows, $maptoconcept, $main_group, $tripleparts = array(), &$alreadySeen = array(), $triples = array(), &$nodebodies = array(), $delimiter, $trim) {
+  $i = 0;
+  $tree = array();
+  $values = array();
+  $bodies = array();
+//  drupal_set_message(serialize($XMLrows));
+//  return;
+  foreach($XMLrows as $key => $value) { 
+  $i = 0;
+//  while(isset($XMLrows[$i])) {
+//    $XMLrow = $XMLrows[$i];
+//    drupal_set_message(serialize($XMLrow));
+//    foreach($XMLrow as $key => $value) {
+//    $XMLrow = $value[$i];
+//    dpm($key);
+//    dpm($value);
+
+    
+    while(isset($value[$i])) {  
+      $XMLrow = $value[$i];
+ 
+      if($key == "path") {
+        $pathid = $value[$i . '_attr']['id'];
+        $pathvalue = empty($row[$XMLrow["fieldname"]]) ? "" : $row[$XMLrow["fieldname"]];
+        if(!empty($pathid))
+          $values[$pathid] = $pathvalue;
+      }
+      
+      if($key == "node_body") {
+//        dpm($row);
+//        dpm($XMLrow);
+        $pathid = $XMLrow["path"][$i . '_attr']['id'];
+        $nodebodyvalue = empty($row[$XMLrow["path"][0]["fieldname"]]) ? "" : $row[$XMLrow["path"][0]["fieldname"]];
+        if(!empty($pathid))
+          $bodies[$pathid] = $nodebodyvalue;
+      }
+
+//      $triples = array_merge($triples, $tmptrip);
+      $i++;
+    }
+    
+//    return $triples;
+//    $i++;
+  }
+  
+  $real_values = wisski_sql_import_generateValuesForGroup($main_group, $values, $delimiter, $trim);
+  
+  $tree['values'] = $real_values;
+  $tree['bodies'] = $bodies;
+  
+  return $tree;
+}
+
+function wisski_sql_import_overview_submit($form, &$form_state) {
+  $url = $form_state['values']['url'];
+  $file = (isset($_FILES['files']['tmp_name']['upload'])) ? $_FILES['files']['tmp_name']['upload'] : NULL;
+  if ($file == NULL) $file = $url;
+
+//  drupal_set_message(serialize($file));
+
+  $arr = xml2array($file);
+
+  //drupal_set_message(serialize($arr));
+  
+  $dbserver = $arr['server'][0]['url'];
+  $dbuser = $arr['server'][0]['user'];
+  $dbpass = $arr['server'][0]['password'];
+  $dbport = isset($arr['server'][0]['port']) ? $arr['server'][0]['port'] : '3306';
+
+  $alreadySeen = array();
+
+  $db = $arr['server'][0]['database'];
+
+  $i =0;
+  while(isset($arr['server'][0]['table'][$i])) {
+
+  $connection = mysql_connect($dbserver . ':' . $dbport, $dbuser, $dbpass);
+  
+  if(!$connection) {
+    drupal_set_message("Connection could not be established!",'error');
+    return;
+  } else {
+    drupal_set_message("Connection established!");
+  }
+  
+  if(!mysql_select_db($db, $connection)) {
+    drupal_set_message("Database '$db' could not be found!", 'error');
+    return;
+  } else {
+    drupal_set_message("DB '$db' selected!");
+  }
+  
+//  drupal_set_message(serialize($arr['server']['table']));
+//  if(isset($arr['server']['table']['name']))
+//    wisski_sql_import_storeTable($arr['server']['table']);
+//  else 
+//  $i =0;
+//  while(isset($arr['server'][0]['table'][$i])) {
+//   foreach($arr['server'][0]['table'] as $tab) {
+//    $nodebodies = array();
+    wisski_sql_import_storeTable($arr['server'][0]['table'][$i], $alreadySeen);
+    $i++;
+    mysql_close();
+  }
+  drupal_set_message("done.");
+
+  $form_state['redirect'] = "admin/settings/wisski/import";
+  return;
+
+}
+
+
+function xml2array($url, $get_attributes = 1, $priority = 'tag')
+{
+    $contents = "";
+    if (!function_exists('xml_parser_create'))
+    {
+        return array ();
+    }
+    $parser = xml_parser_create('');
+    if (!($fp = @ fopen($url, 'rb')))
+    {
+        return array ();
+    }
+    while (!feof($fp))
+    {
+        $contents .= fread($fp, 8192);
+    }
+    fclose($fp);
+    xml_parser_set_option($parser, XML_OPTION_TARGET_ENCODING, "UTF-8");
+    xml_parser_set_option($parser, XML_OPTION_CASE_FOLDING, 0);
+    xml_parser_set_option($parser, XML_OPTION_SKIP_WHITE, 1);
+    xml_parse_into_struct($parser, trim($contents), $xml_values);
+    xml_parser_free($parser);
+    if (!$xml_values)
+        return; //Hmm...
+    $xml_array = array ();
+    $parents = array ();
+    $opened_tags = array ();
+    $arr = array ();
+    $current = & $xml_array;
+    $repeated_tag_index = array ();
+    //drupal_set_message(serialize($xml_values));
+    foreach ($xml_values as $data)
+    {
+        unset ($attributes, $value);
+        extract($data);
+        $result = array ();
+        $attributes_data = array ();
+        if (isset ($value))
+        {
+            if ($priority == 'tag')
+                $result = $value;
+            else
+                $result['value'] = $value;
+        }
+        if (isset ($attributes) and $get_attributes)
+        {
+            foreach ($attributes as $attr => $val)
+            {
+                if ($priority == 'tag')
+                    $attributes_data[$attr] = $val;
+                else
+                    $result['attr'][$attr] = $val; //Set all the attributes in a array called 'attr'
+            }
+        }
+        if ($type == "open")
+        {
+            $parent[$level -1] = & $current;
+            
+            if (!is_array($current) or (!in_array($tag, array_keys($current))))
+            {
+/*
+                $current[$tag] = $result;
+                if ($attributes_data)
+                    $current[$tag . '_attr'] = $attributes_data;
+                $repeated_tag_index[$tag . '_' . $level] = 1;
+                $current = & $current[$tag];
+*/
+              
+              $current[$tag][0] = $result;
+              $repeated_tag_index[$tag . '_' . $level] = 1;
+              if ($attributes_data)
+                $current[$tag]['0_attr'] = $attributes_data;
+              $last_item_index = $repeated_tag_index[$tag . '_' . $level] - 1;
+              $current = & $current[$tag][$last_item_index];
+                                              
+            }
+            else
+            {
+                if (isset ($current[$tag][0]))
+                {
+                    $current[$tag][$repeated_tag_index[$tag . '_' . $level]] = $result;
+                    $current[$tag][$repeated_tag_index[$tag . '_' . $level] . '_attr'] = $attributes_data;
+                    $repeated_tag_index[$tag . '_' . $level]++;
+                }
+                else
+                {
+                    $current[$tag] = array (
+                        $current[$tag],
+                        $result
+                    );
+                    $repeated_tag_index[$tag . '_' . $level] = 2;
+                    if (isset ($current[$tag . '_attr']))
+                    {
+                        $current[$tag]['0_attr'] = $current[$tag . '_attr'];
+                        unset ($current[$tag . '_attr']);
+                    }
+                }
+                $last_item_index = $repeated_tag_index[$tag . '_' . $level] - 1;
+                $current = & $current[$tag][$last_item_index];
+            }
+        }
+        elseif ($type == "complete")
+        {
+            if (!isset ($current[$tag]))
+            {
+                $current[$tag] = $result;
+                $repeated_tag_index[$tag . '_' . $level] = 1;
+                if ($priority == 'tag' and $attributes_data)
+                    $current[$tag . '_attr'] = $attributes_data;
+            }
+            else
+            {
+                if (isset ($current[$tag][0]) and is_array($current[$tag]))
+                {
+                    $current[$tag][$repeated_tag_index[$tag . '_' . $level]] = $result;
+                    if ($priority == 'tag' and $get_attributes and $attributes_data)
+                    {
+                        $current[$tag][$repeated_tag_index[$tag . '_' . $level] . '_attr'] = $attributes_data;
+                    }
+                    $repeated_tag_index[$tag . '_' . $level]++;
+                }
+                else
+                {
+                    $current[$tag] = array (
+                        $current[$tag],
+                        $result
+                    );
+                    $repeated_tag_index[$tag . '_' . $level] = 1;
+                    if ($priority == 'tag' and $get_attributes)
+                    {
+                        if (isset ($current[$tag . '_attr']))
+                        {
+                            $current[$tag]['0_attr'] = $current[$tag . '_attr'];
+                            unset ($current[$tag . '_attr']);
+                        }
+                        if ($attributes_data)
+                        {
+                            $current[$tag][$repeated_tag_index[$tag . '_' . $level] . '_attr'] = $attributes_data;
+                        }
+                    }
+                    $repeated_tag_index[$tag . '_' . $level]++; //0 and 1 index is already taken
+                }
+            }
+        }
+        elseif ($type == 'close')
+        {
+            $current = & $parent[$level -1];
+        }
+    }
+    return ($xml_array);
+}

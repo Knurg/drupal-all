@@ -49,3 +49,6 @@
 [submodule "themes/blendedmalts"]
 	path = themes/blendedmalts
 	url = git@github.com:WissKI/blendedmalts.git
+[submodule "modules/wisski_zotero/libZotero"]
+	path = modules/wisski_zotero/libZotero
+	url = https://github.com/fcheslack/libZotero
