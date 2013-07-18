@@ -168,7 +168,7 @@ function wisski_sql_import_storeTable($table, &$alreadySeen) {
       $append = "";
       
   $sql = "SELECT $select FROM `$tablename` $append";
-//    drupal_set_message($sql);  
+//    drupal_set_message(htmlentities($sql));  
   $qry = mysql_query($sql);
   
   if(!$qry) {
@@ -217,32 +217,29 @@ function wisski_sql_import_storeTable($table, &$alreadySeen) {
 //    drupal_set_message("debug:");
 //    drupal_set_message(serialize($values));
 //    drupal_set_message($groupid);
- 
+     $bodies = $values['bodies']; 
      $values['values']['group'] = $groupid;
      $values['submitted'] = true;
      $values['clicked_button'] = array( '#parents' => array() );
      $values['values']['op'] = t('Save');
      $node = array('type' => 'individual');
-     
- 
-//     drupal_set_message("in: " . serialize($values));
  
       drupal_execute('individual_node_form', $values, $node);   
     $errors = drupal_execute('wisski_pathbuilder_build_group', $values, $groupid, 2);
-//    drupal_set_message("mv: " . serialize($values));
-//    drupal_set_message("errors: " . serialize($errors));
-//    return;
     
     
     $triples = array();
     //$triples[] = $values['triples'][0];
-    $samepart['x0'] = $values['triples'][0]['s'];
+    //$samepart['x0'] = $values['triples'][0]['s'];
+    $samepart['x0'] = wisski_store_getObj()->wisski_ARCAdapter_delNamespace($values['title']);
+//    drupal_set_message(serialize($values));
     
-    if(isset($values['bodies'])) {
-      foreach($values['bodies'] as $key => $valuestr) {
-        $triples = _wisski_pathbuilder_generate_triples_of_path(array(), $valuestr, $key, $values['triples'][0]['s'], $samepart);
-   
-//    dpm($addtriples);
+    if(isset($bodies)) {
+      foreach($bodies as $key => $valuestr) {
+        $triples = _wisski_pathbuilder_generate_triples_of_path(array(), $valuestr, $key, $samepart['x0'], $samepart);
+//    dpm($key);
+//    dpm($valuestr);
+//    dpm($triples);
         
         foreach($triples as $key => $triple) {
           $node = wisski_store_addNodeForTriple($triple);
@@ -302,7 +299,9 @@ function wisski_sql_import_generateValuesForGroup($groupid, $row_values, $delimi
       $workvalues[$group_or_field['id']] = $got[$group_or_field['id']];
     } else { // it is a field
       if($group_or_field['fieldtype'] == 'ontotext' || $group_or_field['fieldtype'] == 'images' || $group_or_field['fieldtype'] == 'coordinates'  ) {
-        $multihits = explode("&", $row_values[$group_or_field['id']]);
+        
+        
+        $multihits = explode($delimiter, $row_values[$group_or_field['id']]);
         
         if(count($multihits) > 0) 
           foreach($multihits as $key => $multihit) {
@@ -362,6 +361,7 @@ function wisski_sql_import_storeRow($row, $XMLrows, $maptoconcept, $main_group, 
 //        dpm($XMLrow);
         $pathid = $XMLrow["path"][$i . '_attr']['id'];
         $nodebodyvalue = empty($row[$XMLrow["path"][0]["fieldname"]]) ? "" : $row[$XMLrow["path"][0]["fieldname"]];
+//        drupal_set_message("got node body value: " . serialize($nodebodyvalue));
         if(!empty($pathid))
           $bodies[$pathid] = $nodebodyvalue;
       }
@@ -378,7 +378,7 @@ function wisski_sql_import_storeRow($row, $XMLrows, $maptoconcept, $main_group, 
   
   $tree['values'] = $real_values;
   $tree['bodies'] = $bodies;
-  
+//  drupal_set_message(serialize($tree));  
   return $tree;
 }
 
@@ -508,6 +508,8 @@ function xml2array($url, $get_attributes = 1, $priority = 'tag')
                 $repeated_tag_index[$tag . '_' . $level] = 1;
                 $current = & $current[$tag];
 */
+//              drupal_set_message(serialize($current));
+//              drupal_set_message(serialize($tag));
               
               $current[$tag][0] = $result;
               $repeated_tag_index[$tag . '_' . $level] = 1;
@@ -573,6 +575,8 @@ function xml2array($url, $get_attributes = 1, $priority = 'tag')
                     {
                         if (isset ($current[$tag . '_attr']))
                         {
+//                            drupal_set_message(serialize($current));
+//                            drupal_set_message(serialize($tag));
                             $current[$tag]['0_attr'] = $current[$tag . '_attr'];
                             unset ($current[$tag . '_attr']);
                         }
