@@ -421,6 +421,8 @@ function wisski_sql_import_overview_submit($form, &$form_state) {
     drupal_set_message("DB '$db' selected!");
   }
   
+  // delete all attachments
+  unset($_FILES);  
 //  drupal_set_message(serialize($arr['server']['table']));
 //  if(isset($arr['server']['table']['name']))
 //    wisski_sql_import_storeTable($arr['server']['table']);
