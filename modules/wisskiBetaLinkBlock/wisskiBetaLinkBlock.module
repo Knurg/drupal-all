@@ -1,0 +1,505 @@
+<?php
+
+/**
+ * The main rendering function for the link block. Gets the data from the 
+ * database and prints it accordingly.
+ * @param op the operation style
+ * @param delta the offset, here only 0 is allowed
+ * @param edit not used
+ * @author Mark Fichtner
+ */
+function wisskiBetaLinkBlock_block($op = 'list', $delta = 0, $edit = array()) {
+  if ($op == "list") {
+    // Generate listing of blocks from this module, for the admin/block page
+    $block = array();
+    $block[0]["info"] = t('WissKI link Block');
+    return $block;
+  } else if ($op == "view") {
+  
+    if(is_numeric(arg(1)))
+      $node = node_load(arg(1));
+  
+    if(empty($node))
+      return;
+
+    include_once('sites/all/modules/wisski_pathbuilder/wisski_pathbuilder.inc');
+    $groups = wisski_pathbuilder_getGroupsForConcept(wisski_store_getObj()->wisski_ARCAdapter_delNamespace($node->title), TRUE);
+    $group = $groups[0];   
+
+    $content = array();
+    $outlist = array();
+    if(isset($group)) {
+      $result = db_query("SELECT * FROM {wisski_betalinkblock} WHERE `group_id` = '$group'");
+
+      while($arr1 = db_fetch_array($result)) {
+        $arr = wisski_pathbuilder_getPathData($arr1['path_id']);
+        $sparql = wisski_pathbuilder_get_sparql($arr['id'], " FILTER ( ?x0 = <" . wisski_store_getObj()->wisski_ARCAdapter_delNamespace($node->title) . "> ) ");
+
+        $out = wisski_store_getObj()->wisski_ARCAdapter_getStore()->query($sparql);
+        $results = $out['result']['rows'];
+        if(!$results) 
+          continue;
+        
+        //$outlist = array(); 
+        
+        $path = unserialize($arr['path_array']);
+        
+        foreach($results as $result1) {
+          if($result1["out"]) {
+            if($arr['disamb'] == 0)
+              $outlist[$arr['name']][] = $result1["out"];
+            else {
+              $path = unserialize($arr['path_array']);
+              $targetgroups = wisski_pathbuilder_getInternaGroupsForConcept($path["x" . ($arr['disamb'] - 1)], FALSE);
+
+              // if this object is the object which we are standing on - ignore it.
+              if(wisski_store_getObj()->wisski_ARCAdapter_addNamespace($result1["x" . ($arr['disamb'] - 1)]) == $node->title)
+                continue;
+
+              if(count($targetgroups) > 0) {
+                $outlist[$arr['name']][] = l(html_entity_decode(wisski_pathbuilder_generateGroupName($result1["x" . ($arr['disamb'] - 1)], $targetgroups[0])), $result1["x" . ($arr['disamb'] - 1)]);
+              } else              
+                $outlist[$arr['name']][] = l($result1["out"], $result1["x" . ($arr['disamb'] - 1)]);
+              
+            }
+          } else {
+            $path = unserialize($arr['path_array']);
+            $targetgroups = wisski_pathbuilder_getInternaGroupsForConcept($path["x" . ($arr['disamb'] - 1)], FALSE);
+
+            // if this object is the object which we are standing on - ignore it.
+            if(wisski_store_getObj()->wisski_ARCAdapter_addNamespace($result1["x" . ($arr['disamb'] - 1)]) == $node->title)
+              continue;
+            
+            if(count($targetgroups) > 0) {
+
+              $outlist[$arr['name']][] = l(html_entity_decode(wisski_pathbuilder_generateGroupName($result1["x" . ($arr['disamb'] - 1)], $targetgroups[0])), $result1["x" . ($arr['disamb'] - 1)]);
+            } else
+              $outlist[$arr['name']][] = l(
+                wisski_store_getObj()->wisski_ARCAdapter_addNamespace(
+                  $result1["x" . floor(count(unserialize($arr['path_array']))/2)]),
+                $result1["x" . floor(count(unserialize($arr['path_array']))/2)]);
+          }
+        }
+      }
+    }
+    
+    foreach($outlist as $key => $elem) {
+      $arr = $outlist[$key];
+      $arr = array_unique($arr);
+      sort($arr);
+
+      $content[] = theme('item_list',$arr, $key);
+    }
+
+
+    $block['subject'] = t('Linked WissKI-Individuals');
+
+    foreach($content as $part) {
+      $block['content'] .= $part;
+    }
+    
+    return $block;          
+  }
+}
+
+/**
+ * Add a special theme-ing for the configuration menu
+ * @author Mark Fichtner
+ */
+function wisskiBetaLinkBlock_theme() {
+  return array(
+      'wisskiBetaLinkBlock_adjustBlocks' => array(
+            'file' => 'wisskiBetaLinkBlock.module',
+                  'arguments' => array('form' => NULL),
+                      ),
+                 );
+}
+
+/**
+ * Change the design of the menu
+ * @param form the form array which contains the data
+ * @author Mark Fichtner
+ */
+function theme_wisskiBetaLinkBlock_adjustBlocks($form) {
+  drupal_add_tabledrag('wisski_pathbuilder-overview', 'order', 'sibling', 'wisski-weight');
+
+  $header = array(
+    t('Menu item'),
+    t('Path ID'),
+    t('Weight'),
+    array('data' => t('Operations'), 'colspan' => '3'),
+  );
+
+  $rows = array();
+  foreach (element_children($form['wisski_betalinkblock']) as $mlid) {
+
+    $element = &$form['wisski_betalinkblock'][$mlid];
+    // Build a list of operations.
+    $operations = array();
+    foreach (element_children($element['operations']) as $op) {
+      $operations[] = drupal_render($element['operations'][$op]);
+    }
+    while (count($operations) < 2) {
+      $operations[] = '';
+    }
+
+    // Add special classes to be used for tabledrag.js.
+    $element['weight']['#attributes']['class'] = 'wisski-weight';
+
+    // Change the parent field to a hidden. This allows any value but hides the field.
+    //$element['plid']['#type'] = 'hidden';
+
+    $row = array();
+    $row[] = theme('indentation', $element['#item']['depth'] - 1) . drupal_render($element['title']);
+    $row[] = drupal_render($element['path_id']);
+    $row[] = drupal_render($element['weight']); //. drupal_render($element['plid']) . drupal_render($element['mlid']);
+    $row = array_merge($row, $operations);
+
+    $row = array_merge(array('data' => $row), $element['#attributes']);
+    $row['class'] = !empty($row['class']) ? $row['class'] .' draggable' : 'draggable';
+    $rows[] = $row;
+  }
+	
+  $output = '';
+  if ($rows) {
+    $output .= theme('table', $header, $rows, array('id' => 'wisski_pathbuilder-overview'));
+  }
+  
+  $output .= drupal_render($form);
+  return $output;
+}
+
+/**
+ * Built the menu for the configuration
+ * @param form_state the state of the form
+ * @param groupid the group which is displayed
+ * @author Mark Fichtner
+ */
+function wisskiBetaLinkBlock_adjustBlocks($form_state, $groupid) {
+  static $form = array('#tree' => TRUE);
+  $id = $groupid;
+
+  $result2 = db_query("SELECT * FROM {wisski_betalinkblock} WHERE `group_id` = '$id'"); 
+  while($row = db_fetch_array($result2)) {
+    module_load_include('inc', 'wisski_pathbuilder', 'wisski_pathbuilder');
+    $item = _wisski_pathbuilder_return_item();
+  	$item["#item"]["mlid"] = $row['id'];
+  	$item["mlid"]["#value"] = $row['id'];
+  	$item["#item"]["p1"] = 0;
+	  
+  	$item["#item"]["title"] = $row['name'];
+	  $item["#item"]["href"] = $row['name'];
+	  $item["title"]["#value"] = $row['name'];
+	 
+	  $item["#item"]["weight"] = $row['weight'];
+
+	  unset($item["#item"]["enabled"]);
+	  unset($item["enabled"]);
+    unset($item["#item"]["plid"]);
+    unset($item["plid"]);	  
+
+	  $item['weight'] = array(
+	    '#type' => 'weight',
+	    '#delta' => 50,
+	    '#default_value' => $row['weight'],
+    );
+    
+    $item['path_id']['#value']  = $row['path_id'];
+    $item['operations']['edit']['#value'] = l(t('edit'), 'admin/settings/wisski/linkblock/'. $id . '/' . $item["#item"]["mlid"] .'/edit');
+    $item['operations']['delete']['#value'] = l(t('delete'), 'admin/settings/wisski/linkblock/'. $id . '/' . $item["#item"]["mlid"] .'/delete');
+    $item['operations']['edit path']['#value'] = l(t('edit path'), 'admin/settings/wisski/pathbuilder/'. $row['path_id'] .'/edit');
+  
+    $form["wisski_betalinkblock"][] = $item;
+  }
+  
+  
+  $form['add_button'] = array(
+    '#type' => 'submit',
+//      '#name' => $id,
+    '#value' => t('Add Path to item'),
+    '#submit' => array('wisskiBetaLinkBlock_add_path'),
+      //'#attributes' => array(
+      //  'onclick' => "$('#edit-id').val('".$id."');"
+      //)
+  );
+    
+  $form['save'] = array(
+    '#type' => 'submit',
+    '#value' => t('Save'),
+  );
+
+  return $form;
+
+}
+
+/**
+ * Redirect if a path should be added
+ * @param form_state the state of the form
+ * @param form the form array
+ * @author Mark Fichtner
+ */
+function wisskiBetaLinkBlock_add_path($form, &$form_state) {
+//  drupal_set_message(4);
+  $form_state['redirect'] = 'admin/settings/wisski/linkblock/add_path/' . arg(4);//. $form_state['values']['id'];
+}
+
+/**
+ * Save the path and redirect afterwards
+ * @param form_state the state of the form
+ * @param form the form array
+ * @author Mark Fichtner
+ */
+function _wisskiBetaLinkBlock_add_path_submit($form, &$form_state) {
+
+  db_query("INSERT INTO {wisski_betalinkblock}
+    (path_id, name, description, group_id, weight)
+    VALUES
+    (%d, '%s', '%s', %d, %d)",
+    $form_state['values']['item']['path_id'], $form_state['values']['item']['name'], 
+    $form_state['values']['item']['description'], $form_state['values']['item']['id'], 0);
+            
+  unset($form_state['storage']);
+  
+  $form_state['redirect'] = 'admin/settings/wisski/linkblock/' . $form_state['values']['item']['id'];
+}
+
+/**
+ * The rendering function for the path addition
+ * @param form_state the state of the form
+ * @param arg the group id the path should be added to
+ * @author Mark Fichtner
+ */
+function _wisskiBetaLinkBlock_add_path(&$form_state, $arg) {
+  $form['item'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Add Item'),
+    '#collapsible' => FALSE,
+    '#tree' => TRUE,
+    '#weight' => -2,
+  );
+  
+  $form['item']['name'] = array('#type' => 'textfield',
+    '#title' => t('Title for the block'),
+    '#default_value' => '',
+    '#description' => t(''),
+  );
+
+  include_once('sites/all/modules/wisski_pathbuilder/wisski_pathbuilder.inc');
+  // get all export-paths
+  $paths = wisski_pathbuilder_getPaths(5);
+  $me = wisski_pathbuilder_getPathData($arg);
+  $my_path = _wisski_pathbuilder_calculate_group_samepart($arg);
+  
+  $options = array();
+  
+  foreach($paths as $path) {
+    $arr = wisski_pathbuilder_getPathData($path);
+    $path_arr = unserialize($arr['path_array']);
+    if($path_arr['x0'] == $my_path['x0'])
+      $options[$path] = $arr['name']. " [" . t("path-id") . " " . $path . "]";
+  }
+
+  $form['item']['path_id'] = array('#type' => 'select',
+    '#default_value' => 0,
+    '#title' => t('Select a path for the linkblock'),
+    '#key_type' => 'associative',
+    '#multiple_toggle' => '1',
+    '#options' => $options,
+  );                          
+  
+  $form['item']['description'] = array('#type' => 'textfield',
+    '#title' => t('Description for the Block'),
+    '#default_value' => '',
+    '#description' => t(''),
+  );
+  
+  $form['item']['id'] = array(
+    '#type' => 'hidden',
+    '#value' => $arg,
+  );
+                         
+  $form['submit'] = array('#type' => 'submit', '#value' => t('Save'));
+  
+  return $form;                       
+}
+
+/**
+ * Save the path and redirect afterwards
+ * @param form_state the state of the form
+ * @param form the form array
+ * @author Mark Fichtner
+ */
+function _wisskiBetaLinkBlock_editEntry_submit($form, &$form_state) {
+
+  db_query("UPDATE {wisski_betalinkblock} SET `path_id` = " . $form_state['values']['item']['path_id'] . ", " .
+    "`name` = '" . $form_state['values']['item']['name'] . "', `description` = '" . $form_state['values']['item']['description'] . "' " .
+    "WHERE `id` = " . $form_state['values']['item']['m_id'] . "");
+  unset($form_state['storage']);
+  
+  $form_state['redirect'] = 'admin/settings/wisski/linkblock/' . $form_state['values']['item']['id'];
+}
+
+/**
+ * Delete the path and redirect afterwards
+ * @param form_state the state of the form
+ * @param form the form array
+ * @author Mark Fichtner
+ */
+function _wisskiBetaLinkBlock_deleteEntry($arg1, $arg2) {
+  //dpm($form_state);
+//  dpm($arg1);
+//  dpm($arg2);
+  db_query("DELETE FROM {wisski_betalinkblock} WHERE `id` = " . $arg2 . "");
+//  unset($form_state['storage']);
+  
+  drupal_goto('admin/settings/wisski/linkblock/' . $arg1);
+}
+
+/**
+ * The rendering function for the path editing
+ * @param form_state the state of the form
+ * @param arg the group id the path should be edited
+ * @author Mark Fichtner
+ */
+function _wisskiBetaLinkBlock_editEntry(&$form_state, $arg, $arg2) {
+//  dpm("bla");
+//  dpm($arg);
+  $query = "SELECT * FROM {wisski_betalinkblock} WHERE `id` = '$arg2'";
+
+//  dpm($query);
+
+  $result = db_query($query);
+
+  $m_arr = db_fetch_array($result);
+  
+  //dpm($arr);
+
+  $form['item'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Edit Item'),
+    '#collapsible' => FALSE,
+    '#tree' => TRUE,
+    '#weight' => -2,
+  );
+  
+  $form['item']['name'] = array('#type' => 'textfield',
+    '#title' => t('Title for the block'),
+    '#default_value' => isset($m_arr['name']) ? $m_arr['name'] : '',
+    '#description' => t(''),
+  );
+
+  include_once('sites/all/modules/wisski_pathbuilder/wisski_pathbuilder.inc');
+  // get all export-paths
+  $paths = wisski_pathbuilder_getPaths(5);
+  $me = wisski_pathbuilder_getPathData($arg);
+  $my_path = _wisski_pathbuilder_calculate_group_samepart($arg);
+  
+  $options = array();
+  
+  foreach($paths as $path) {
+    $arr = wisski_pathbuilder_getPathData($path);
+    $path_arr = unserialize($arr['path_array']);
+    if($path_arr['x0'] == $my_path['x0'])
+      $options[$path] = $arr['name']. " [" . t("path-id") . " " . $path . "]";
+  }
+
+  $form['item']['path_id'] = array('#type' => 'select',
+    '#default_value' => isset($m_arr['path_id']) ? $m_arr['path_id'] : 0,
+    '#title' => t('Select a path for the linkblock'),
+    '#key_type' => 'associative',
+    '#multiple_toggle' => '1',
+    '#options' => $options,
+  );                          
+  
+  $form['item']['description'] = array('#type' => 'textfield',
+    '#title' => t('Description for the Block'),
+    '#default_value' => isset($m_arr['description']) ? $m_arr['description'] : '',
+    '#description' => t(''),
+  );
+  
+  $form['item']['id'] = array(
+    '#type' => 'hidden',
+    '#value' => $arg,
+  );
+  
+  $form['item']['m_id'] = array(
+    '#type' => 'hidden',
+    '#value' => $arg2,
+  );
+                         
+  $form['submit'] = array('#type' => 'submit', '#value' => t('Save'));
+  
+  return $form;                       
+}
+
+function wisskiBetaLinkBlock_adjust() {
+  return array();
+}
+
+function wisskiBetaLinkBlock_menu() {
+  $items = array();
+  
+  $items['admin/settings/wisski/linkblock'] = array(
+    'title' => t('Adjust Linkblock'),
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('wisskiBetaLinkBlock_adjust'),
+//    'page callback' => 'wisskiPages_createContent',
+    'type' => MENU_NORMAL_ITEM,
+    'access arguments' => array('wisski access templateCreate'),
+  );
+  
+  
+  $result = db_query('SELECT * FROM {wisski_template} WHERE `is_group` = 1');
+  
+  while($row = db_fetch_array($result)) {
+    $items['admin/settings/wisski/linkblock/' . $row['id']] = array(
+      'title' => t($row['name']),
+      'page callback' => 'drupal_get_form',
+      'page arguments' => array('wisskiBetaLinkBlock_adjustBlocks', 4),
+//    'page callback' => 'wisskiPages_createContent',
+      'type' => MENU_LOCAL_TASK,
+      'access arguments' => array('wisski access templateCreate'),
+    );
+
+  }
+  
+  $items['admin/settings/wisski/linkblock/%/%/edit' ] = array(
+    'title' => t($row['name']),
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('_wisskiBetaLinkBlock_editEntry', 4, 5),
+//    'page callback' => 'wisskiPages_createContent',
+    'type' => MENU_CALLBACK,
+    'access arguments' => array('wisski access templateCreate'),
+  );
+    
+  $items['admin/settings/wisski/linkblock/%/%/delete' ] = array(
+    'title' => t($row['name']),
+    'page callback' => '_wisskiBetaLinkBlock_deleteEntry', //drupal_get_form',
+    'page arguments' => array(4, 5),
+//    'page callback' => 'wisskiPages_createContent',
+    'type' => MENU_CALLBACK,
+    'access arguments' => array('wisski access templateCreate'),
+  );
+ 
+  $items['admin/settings/wisski/linkblock/add_path/%'] = array(
+    'title' => t('Add Path'),
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('_wisskiBetaLinkBlock_add_path', 5),
+    'access arguments' => array('wisski administrate page'),
+    'type' => MENU_CALLBACK,
+    //'file' => 'wisski_pathbuilder.inc',
+  );
+
+    $items['admin/settings/wisski/linkblock/get_own_path'] = array(
+  //    'title' => 'some dumb function',
+    'page callback' => 'wisskiBetaLinkBlock_calculate_path',
+    'access arguments' => array('wisski administrate page'),
+    'type' => MENU_CALLBACK,
+//    'file' => 'wisski_pathbuilder.inc',
+  );
+                             
+  return $items;  
+}
+
+
+                                  
