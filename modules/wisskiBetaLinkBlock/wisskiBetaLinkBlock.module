@@ -57,7 +57,7 @@ function wisskiBetaLinkBlock_block($op = 'list', $delta = 0, $edit = array()) {
                 continue;
 
               if(count($targetgroups) > 0) {
-                $outlist[$arr['name']][] = l(html_entity_decode(wisski_pathbuilder_generateGroupName($result1["x" . ($arr['disamb'] - 1)], $targetgroups[0])), $result1["x" . ($arr['disamb'] - 1)]);
+                $outlist[$arr['name']][] = l(html_entity_decode(wisski_pathbuilder_generateGroupName($result1["x" . ($arr['disamb'] - 1)], $targetgroups[0]),  ENT_QUOTES | ENT_HTML401), $result1["x" . ($arr['disamb'] - 1)]);
               } else              
                 $outlist[$arr['name']][] = l($result1["out"], $result1["x" . ($arr['disamb'] - 1)]);
               
@@ -72,7 +72,7 @@ function wisskiBetaLinkBlock_block($op = 'list', $delta = 0, $edit = array()) {
             
             if(count($targetgroups) > 0) {
 
-              $outlist[$arr['name']][] = l(html_entity_decode(wisski_pathbuilder_generateGroupName($result1["x" . ($arr['disamb'] - 1)], $targetgroups[0])), $result1["x" . ($arr['disamb'] - 1)]);
+              $outlist[$arr['name']][] = l(html_entity_decode(wisski_pathbuilder_generateGroupName($result1["x" . ($arr['disamb'] - 1)], $targetgroups[0]),  ENT_QUOTES | ENT_HTML401), $result1["x" . ($arr['disamb'] - 1)]);
             } else
               $outlist[$arr['name']][] = l(
                 wisski_store_getObj()->wisski_ARCAdapter_addNamespace(
