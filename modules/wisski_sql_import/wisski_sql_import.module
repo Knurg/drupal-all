@@ -317,9 +317,9 @@ function wisski_sql_import_generateValuesForGroup($groupid, $row_values, $delimi
             $workvalues[$group_or_field['id']][$group_or_field['id']][$group_or_field['id'] . '_0'] = $row_values[$group_or_field['id']];
       } else {
         if($trim)
-          $workvalues[$group_or_field['id']] = trim($row_values[$group_or_field['id']]);
+          $workvalues[$group_or_field['id']][$group_or_field['id']] = trim($row_values[$group_or_field['id']]);
         else
-          $workvalues[$group_or_field['id']] = $row_values[$group_or_field['id']];
+          $workvalues[$group_or_field['id']][$group_or_field['id']] = $row_values[$group_or_field['id']];
       }
     
     }
