@@ -1,0 +1,7 @@
+; $Id$
+name = WissKI SQL Import Module with Pathbuilder-support
+description = An addon for WissKI to import data from mysql tables.
+core = 6.x
+version = 0.3
+dependencies[] = wisski_pathbuilder
+package = "WissKI"
