@@ -23,8 +23,11 @@ function wisskiBetaLinkBlock_block($op = 'list', $delta = 0, $edit = array()) {
       return;
 
     include_once('sites/all/modules/wisski_pathbuilder/wisski_pathbuilder.inc');
-    $groups = wisski_pathbuilder_getGroupsForConcept(wisski_store_getObj()->wisski_ARCAdapter_delNamespace($node->title), TRUE);
-    $group = $groups[0];   
+    // This is wrong if there are several groups
+    //$groups = wisski_pathbuilder_getGroupsForConcept(wisski_store_getObj()->wisski_ARCAdapter_delNamespace($node->title), TRUE);
+    //$group = $groups[0];   
+    // This should be right
+    $group = wisski_pathbuilder_getGroupIDForIndividual(wisski_store_getObj()->wisski_ARCAdapter_delNamespace($node->title));
 
     $content = array();
     $outlist = array();
