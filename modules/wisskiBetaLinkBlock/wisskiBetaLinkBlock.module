@@ -111,7 +111,7 @@ function wisskiBetaLinkBlock_block($op = 'list', $delta = 0, $edit = array()) {
         else
           $sortedarr[$k] = $v;
       }
-      #      ksort($sortedarr);
+      ksort($sortedarr);
                                                                                     
       $content[] = theme('item_list',$sortedarr, $key);
                                                                                           
