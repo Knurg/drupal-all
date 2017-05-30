@@ -32,7 +32,7 @@ function wisskiBetaLinkBlock_block($op = 'list', $delta = 0, $edit = array()) {
     $content = array();
     $outlist = array();
     if(isset($group)) {
-      $result = db_query("SELECT * FROM {wisski_betalinkblock} WHERE `group_id` = '$group'");
+      $result = db_query("SELECT * FROM {wisski_betalinkblock} WHERE `group_id` = '$group' ORDER BY `weight` ASC");
 
       while($arr1 = db_fetch_array($result)) {
         $arr = wisski_pathbuilder_getPathData($arr1['path_id']);
@@ -205,7 +205,7 @@ function wisskiBetaLinkBlock_adjustBlocks($form_state, $groupid) {
   static $form = array('#tree' => TRUE);
   $id = $groupid;
 
-  $result2 = db_query("SELECT * FROM {wisski_betalinkblock} WHERE `group_id` = '$id'"); 
+  $result2 = db_query("SELECT * FROM {wisski_betalinkblock} WHERE `group_id` = '$id' ORDER BY `weight` ASC"); 
   while($row = db_fetch_array($result2)) {
     module_load_include('inc', 'wisski_pathbuilder', 'wisski_pathbuilder');
     $item = _wisski_pathbuilder_return_item();
@@ -229,7 +229,7 @@ function wisskiBetaLinkBlock_adjustBlocks($form_state, $groupid) {
 	    '#delta' => 50,
 	    '#default_value' => $row['weight'],
     );
-    
+    $item['hidden_pid'] = array ('#type' => 'hidden', '#value' => $row['path_id']);
     $item['path_id']['#value']  = $row['path_id'];
     $item['operations']['edit']['#value'] = l(t('edit'), 'admin/settings/wisski/linkblock/'. $id . '/' . $item["#item"]["mlid"] .'/edit');
     $item['operations']['delete']['#value'] = l(t('delete'), 'admin/settings/wisski/linkblock/'. $id . '/' . $item["#item"]["mlid"] .'/delete');
@@ -251,12 +251,24 @@ function wisskiBetaLinkBlock_adjustBlocks($form_state, $groupid) {
     
   $form['save'] = array(
     '#type' => 'submit',
+    '#submit' => array('wisskiBetaLinkBlock_form_submit'),
     '#value' => t('Save'),
   );
 
   return $form;
 
 }
+
+function wisskiBetaLinkBlock_form_submit($form, &$form_state) {
+#  drupal_set_message(serialize($form_state));
+  foreach($form_state['values']['wisski_betalinkblock'] as $key => $val) {
+  #    drupal_set_message("Setting weight " . $val['weight'] . " to path " . $val['hidden_pid']);
+    db_query("UPDATE {wisski_betalinkblock} SET weight = %d WHERE path_id = %d", $val['weight'], $val['hidden_pid']);
+  }
+  unset($form_state['storage']);
+      
+}
+          
 
 /**
  * Redirect if a path should be added
