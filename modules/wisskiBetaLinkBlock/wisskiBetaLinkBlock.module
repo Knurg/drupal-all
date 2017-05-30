@@ -37,7 +37,8 @@ function wisskiBetaLinkBlock_block($op = 'list', $delta = 0, $edit = array()) {
       while($arr1 = db_fetch_array($result)) {
         $arr = wisski_pathbuilder_getPathData($arr1['path_id']);
         $sparql = wisski_pathbuilder_get_sparql($arr['id'], " FILTER ( ?x0 = <" . wisski_store_getObj()->wisski_ARCAdapter_delNamespace($node->title) . "> ) ");
-
+        $sparql = str_replace("SELECT DISTINCT ?x0", "SELECT DISTINCT", $sparql);
+        
         $out = wisski_store_getObj()->wisski_ARCAdapter_getStore()->query($sparql);
         $results = $out['result']['rows'];
         if(!$results) 
@@ -89,9 +90,31 @@ function wisskiBetaLinkBlock_block($op = 'list', $delta = 0, $edit = array()) {
     foreach($outlist as $key => $elem) {
       $arr = $outlist[$key];
       $arr = array_unique($arr);
-      sort($arr);
 
-      $content[] = theme('item_list',$arr, $key);
+      $sl = $sortlist[$key];
+      $sl = array_unique($sl);
+      asort($sl);
+                 
+      #      drupal_set_message(serialize($sl));
+                  
+      $sortedkeys = array_keys($sl);
+                       
+      $sortedkeys = array_flip($sortedkeys);
+                              
+      #      drupal_set_message(serialize($sortedkeys));
+                              
+      $sortedarr = array();
+                                    
+      foreach($arr as $k => $v) {
+        if(isset($sortedkeys[$k]))
+          $sortedarr[$sortedkeys[$k]] = $v;
+        else
+          $sortedarr[$k] = $v;
+      }
+      #      ksort($sortedarr);
+                                                                                    
+      $content[] = theme('item_list',$sortedarr, $key);
+                                                                                          
     }
 
 
